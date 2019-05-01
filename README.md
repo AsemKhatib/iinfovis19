@@ -2,26 +2,38 @@
 
 ## Dependencies
 
+[Node.js](https://nodejs.org/en/) (Recommended Version)
+
+[Vue.js](https://vuejs.org/)
+
+[d3.js](https://d3js.org/)
+
+[Bootstrap](https://getbootstrap.com/)
+
+[Typescript](https://www.typescriptlang.org/)
+
 ## Installation
+
+Install `node.js` (recommended version) if it's not already installed. (In your console, type node --version and npm --version to check).
+
+Clone the repository and open it in your favorite code editor. (Recommended: [Visual Studio Code](https://code.visualstudio.com/)).
+
+Open an integrated console, or open a new console and navigate to the folder. Type `npm install` to install the dependencies.
 
 ## Get Started
 
+In the console, type `npm run build` and then open the `./www/index.html` in the browser.
+
+To enable hot reloading, and you're using Visual Studio Code, install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension, and from the bottom of your vscode editor, click `Go Live`.
+
+Check `./src/components/Hello.vue` and `./src/components/HelloDecorator.vue` for examples on how to a Vue Component looks like in Typescript.
+
 ## Resources
-
-### Tools
-
-https://vuejs.org/
-
-https://d3js.org/
-
-https://getbootstrap.com/
-
-https://www.typescriptlang.org/
 
 ### Guides
 
-https://vuejs.org/v2/guide/
+Vue.js: https://vuejs.org/v2/guide/
 
-https://github.com/Microsoft/TypeScript-Vue-Starter/
+Typescript with Vue.js: https://dev.to/georgehanson/building-vuejs-applications-with-typescript-1j2n (also check `Hello.vue` and `HelloDecorator.vue`)
 
-https://levelup.gitconnected.com/d3-js-and-vue-js-7a6a721eb79f
+D3.js with Vue.js: https://levelup.gitconnected.com/d3-js-and-vue-js-7a6a721eb79f
