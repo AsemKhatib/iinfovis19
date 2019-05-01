@@ -5,10 +5,11 @@ var webpack = require('webpack')
 module.exports = {
   entry: './src/index.ts',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    path: path.resolve(__dirname, './www'),
+    publicPath: '/www/',
     filename: 'build.js'
   },
+  watch: true,
   module: {
     rules: [
       {
@@ -55,7 +56,7 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: 'inline-source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {
