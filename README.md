@@ -12,9 +12,11 @@
 
 [Typescript](https://www.typescriptlang.org/) - Superset language from Javascript with Types, good for OOD.
 
-### To Add:
+### Might Add:
 
-[VueRx](https://github.com/vuejs/vue-rx) - RxJS integration for Vue.js, HTTP client (to fetch data locally and from server).
+[VueRx](https://github.com/vuejs/vue-rx) - RxJS integration for Vue.js.
+
+Axios - HTTP Client
 
 
 ## Installation
