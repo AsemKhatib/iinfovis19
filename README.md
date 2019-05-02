@@ -2,15 +2,20 @@
 
 ## Dependencies
 
-[Node.js](https://nodejs.org/en/) (Recommended Version)
+[Node.js](https://nodejs.org/en/) (Recommended Version) - Javascript runtime environment
 
-[Vue.js](https://vuejs.org/)
+[Vue.js](https://vuejs.org/) - Single Page Application Framework
 
-[d3.js](https://d3js.org/)
+[d3.js](https://d3js.org/) - Data Visulaization library
 
-[Bootstrap](https://getbootstrap.com/)
+[Bootstrap](https://getbootstrap.com/) - CSS Library
 
-[Typescript](https://www.typescriptlang.org/)
+[Typescript](https://www.typescriptlang.org/) - Superset language from Javascript with Types, good for OOD.
+
+### To Add:
+
+[VueRx](https://github.com/vuejs/vue-rx) - RxJS integration for Vue.js, HTTP client (to fetch data locally and from server).
+
 
 ## Installation
 
