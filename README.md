@@ -35,7 +35,7 @@ Check `./src/components/Hello.vue` and `./src/components/HelloDecorator.vue` for
 
 ### Guides
 
-Typescript with Vue.js: https://dev.to/georgehanson/building-vuejs-applications-with-typescript-1j2n (also check `Hello.vue` and `HelloDecorator.vue`)
+Typescript with Vue.js: https://dev.to/georgehanson/building-vuejs-applications-with-typescript-1j2n (OR check `Hello.vue` and `HelloDecorator.vue` in the project)
 
 D3.js with Vue.js: https://levelup.gitconnected.com/d3-js-and-vue-js-7a6a721eb79f
 
