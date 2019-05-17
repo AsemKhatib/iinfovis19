@@ -35,10 +35,12 @@ Check `./src/components/Hello.vue` and `./src/components/HelloDecorator.vue` for
 
 ### Guides
 
-Vue.js: https://vuejs.org/v2/guide/
-
-Vue.js Cheatsheet: https://flaviocopes.com/vue-cheat-sheet/
-
 Typescript with Vue.js: https://dev.to/georgehanson/building-vuejs-applications-with-typescript-1j2n (also check `Hello.vue` and `HelloDecorator.vue`)
 
 D3.js with Vue.js: https://levelup.gitconnected.com/d3-js-and-vue-js-7a6a721eb79f
+
+### References
+
+Vue.js: https://vuejs.org/v2/guide/
+
+Vue.js Cheatsheet: https://flaviocopes.com/vue-cheat-sheet/
