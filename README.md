@@ -6,7 +6,7 @@
 
 [Vue.js](https://vuejs.org/) - Single Page Application Framework
 
-[d3.js](https://d3js.org/) - Data Visulaization library
+[d3.js](https://d3js.org/) - Data Visualization library
 
 [Bootstrap](https://getbootstrap.com/) - CSS Library
 
@@ -29,7 +29,7 @@ In the console, type `npm run build` and then open the `./www/index.html` in the
 
 To enable hot reloading, and you're using Visual Studio Code, install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension, and from the bottom of your vscode editor, click `Go Live`.
 
-Check `./src/components/Hello.vue` and `./src/components/HelloDecorator.vue` for examples on how to a Vue Component looks like in Typescript.
+Check `./src/examples/Hello.vue` and `./src/examples/HelloDecorator.vue` for examples on how to a Vue Component looks like in Typescript.
 
 ## Resources
 
