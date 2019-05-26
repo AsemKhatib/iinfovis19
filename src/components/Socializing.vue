@@ -1,10 +1,7 @@
 <!-- HTML Content -->
 <template>
     <div>
-        <!-- Example content -->
-        <div class="greeting">Hello {{name}}{{exclamationMarks}}</div>
-        <button @click="decrement">-</button>
-        <button @click="increment">+</button>
+        Socializing Component
     </div>
 </template>
 
@@ -13,32 +10,12 @@
 import { Vue, Component, Prop } from "vue-property-decorator";
 
 @Component
-export default class Socializing extends Vue {
-    // Example content
-    @Prop() name!: string;
-    @Prop() initialEnthusiasm!: number;
+export default class SocializingComponent extends Vue {
 
-    enthusiasm = this.initialEnthusiasm;
-
-    increment() {
-        this.enthusiasm++;
-    }
-
-    decrement() {
-        if (this.enthusiasm > 1) {
-            this.enthusiasm--;
-        }
-    }
-
-    get exclamationMarks(): string {
-        return Array(this.enthusiasm + 1).join('!');
-    }
 }
 </script>
 
 <!-- (S)CSS content -->
 <style>
-.greeting {
-    font-size: 20px;
-}
+
 </style>

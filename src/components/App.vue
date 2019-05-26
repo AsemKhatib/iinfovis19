@@ -2,44 +2,39 @@
 <!-- HTML Content -->
 <template>
     <div>
-        <!-- Example content -->
-        <div class="greeting">Hello {{name}}{{exclamationMarks}}</div>
-        <button @click="decrement">-</button>
-        <button @click="increment">+</button>
+        App Component:
+        <div class="row">
+            <div class="col-md-12 col-lg-4">
+                <food-component />
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <music-component />
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <socializing-component />
+            </div>
+        </div>
+
     </div>
 </template>
 
 <!-- Typescript content --> 
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
+import FoodComponent from "./Food.vue";
+import MusicComponent from "./Music.vue";
+import SocializingComponent from "./Socializing.vue";
 
-@Component({})
+@Component({
+    components: {FoodComponent, MusicComponent, SocializingComponent}
+})
 export default class App extends Vue {
-    // Example content
-    @Prop() name!: string;
-    @Prop() initialEnthusiasm!: number;
 
-    enthusiasm = this.initialEnthusiasm;
-
-    increment() {
-        this.enthusiasm++;
-    }
-
-    decrement() {
-        if (this.enthusiasm > 1) {
-            this.enthusiasm--;
-        }
-    }
-
-    get exclamationMarks(): string {
-        return Array(this.enthusiasm + 1).join('!');
-    }
 }
 </script>
 
 <!-- (S)CSS content -->
 <style>
-.greeting {
-    font-size: 20px;
-}
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
 </style>
