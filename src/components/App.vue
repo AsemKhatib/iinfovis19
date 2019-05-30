@@ -2,7 +2,7 @@
 <!-- HTML Content -->
 <template>
     <div>
-        App Component:
+        Hello World!
         <div class="row">
             <div class="col-md-12 col-lg-4">
                 <food-component />
@@ -11,6 +11,7 @@
                 <music-component />
             </div>
             <div class="col-md-12 col-lg-4">
+                
                 <socializing-component />
             </div>
         </div>
@@ -20,6 +21,7 @@
 
 <!-- Typescript content --> 
 <script lang="ts">
+
 import { Vue, Component, Prop } from "vue-property-decorator";
 import FoodComponent from "./Food.vue";
 import MusicComponent from "./Music.vue";
@@ -37,4 +39,12 @@ export default class App extends Vue {
 <style>
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+
+}
 </style>
