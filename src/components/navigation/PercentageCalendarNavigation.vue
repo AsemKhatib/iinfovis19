@@ -5,35 +5,35 @@
             <thead>
                 <tr>
                     <th class="all">all</th>
-                    <th class="day" data-index="0">Mon</th>
-                    <th class="day" data-index="1">Tue</th>
-                    <th class="day" data-index="2">Wed</th>
-                    <th class="day" data-index="3">Thu</th>
-                    <th class="day" data-index="4">Fri</th>
-                    <th class="day" data-index="5">Sat</th>
-                    <th class="day" data-index="6">Sun</th>
+                    <th class="day-of-week" data-index="0">Mon</th>
+                    <th class="day-of-week" data-index="1">Tue</th>
+                    <th class="day-of-week" data-index="2">Wed</th>
+                    <th class="day-of-week" data-index="3">Thu</th>
+                    <th class="day-of-week" data-index="4">Fri</th>
+                    <th class="day-of-week" data-index="5">Sat</th>
+                    <th class="day-of-week" data-index="6">Sun</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td class="week" data-index="0">W 1</td>
-                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
-                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
-                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
-                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
-                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
-                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
-                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day" data-index="0"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day" data-index="1"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day" data-index="2"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day" data-index="3"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day" data-index="4"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day" data-index="5"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day" data-index="6"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
                 </tr>
                 <tr>
-                    <td class="week" data-index="1">W 1</td>
-                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
-                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
-                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
-                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
-                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
-                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
-                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="week" data-index="1">W 2</td>
+                    <td class="single-day" data-index="7"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day" data-index="8"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day" data-index="9"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day" data-index="10"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day" data-index="11"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day" data-index="12"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day" data-index="13"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
                 </tr>
             </tbody>
         </table>
@@ -58,7 +58,7 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         });
     }
 
-    updateHeadersEtcIvNecessary() {
+    getSelectedIndicies(): Array<boolean> {
         let indiciesSelected = [false, false, false, false, false, false, false, false, false, false, false, false, false, false];
         let cells = this.$el.querySelectorAll('.single-day');
         for ( var i = 0; i < cells.length; i++ ) {
@@ -66,38 +66,173 @@ export default class PercentageCalendarNavigationComponent extends Vue {
                 indiciesSelected[i] = true;
             }
         }
+        return indiciesSelected;
+    }
 
-        let days = this.$el.querySelectorAll('.day');
+    getAllSelectCount(): number {
+        let counter = 0;
+        let cells = this.$el.querySelectorAll('.single-day');
+        for ( var j = 0; j < 2; j++ ) {
+            for ( var i = 0; i < 7; i++ ) {
+                if ( cells[i+(j*7)].classList.contains("cell-selected") ) {
+                    counter++;
+                }
+            }
+        }
+        return counter;
+    }
+
+    toggleAll() {
+        if ( this.getAllSelectCount() == 14 ) {
+            this.unselectAll();
+        } else {
+            this.selectAll();
+        }
+    }
+
+    selectAll() {
+        let cells = this.$el.querySelectorAll('.single-day');
+        for ( var i = 0; i < cells.length; i++ ) {
+            cells[i].classList.toggle('cell-selected', true);
+        }  
+        this.updateHeadersEtcIvNecessary();
+    }
+
+    unselectAll() {
+        let cells = this.$el.querySelectorAll('.single-day');
+        for ( var i = 0; i < cells.length; i++ ) {
+            cells[i].classList.toggle('cell-selected', false);
+        }  
+        this.updateHeadersEtcIvNecessary();
+    }
+
+    getDayOfWeekSelectCount(dayOfWeek: number): number {
+        let counter = 0;
+        let cells = this.$el.querySelectorAll('.single-day');
+        for ( var i = 0; i < 2; i++ ) {
+            if ( cells[dayOfWeek+(i*7)].classList.contains("cell-selected") ) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    getWeekSelectCount(week: number): number {
+        let counter = 0;
+        let cells = this.$el.querySelectorAll('.single-day');
+        for ( var i = 0; i < 7; i++ ) {
+            if ( cells[week*7+i].classList.contains("cell-selected") ) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    toggleDayOfWeek(dayOfWeek: number) {
+        if ( this.getDayOfWeekSelectCount(dayOfWeek) == 2 ) {
+            this.unselectDayOfWeek(dayOfWeek);
+        } else {
+            this.selectDayOfWeek(dayOfWeek);
+        }
+    }
+
+    selectDayOfWeek(dayOfWeek: number) {
+        let cells = this.$el.querySelectorAll('.single-day');
+        cells[dayOfWeek].classList.toggle('cell-selected', true);
+        cells[dayOfWeek+7].classList.toggle('cell-selected', true);
+        this.updateHeadersEtcIvNecessary();
+    }
+
+    unselectDayOfWeek(dayOfWeek: number) {
+        let cells = this.$el.querySelectorAll('.single-day');
+        cells[dayOfWeek].classList.toggle('cell-selected', false);
+        cells[dayOfWeek+7].classList.toggle('cell-selected', false);
+        this.updateHeadersEtcIvNecessary();
+    }
+
+    toggleWeek(week: number) {
+        let counter = this.getWeekSelectCount(week);
+        if ( counter == 7 ) {
+            this.unselectWeek(week);
+        } else {
+            this.selectWeek(week);
+        }
+    }
+
+    selectWeek(week: number) {
+        let cells = this.$el.querySelectorAll('.single-day');
+        for ( var i = 0; i < 7; i++ ) {
+            cells[week*7+i].classList.toggle('cell-selected', true);
+        }    
+        this.updateHeadersEtcIvNecessary();
+    }
+
+    unselectWeek(week: number) {
+        let cells = this.$el.querySelectorAll('.single-day');
+        for ( var i = 0; i < 7; i++ ) {
+            cells[week*7+i].classList.toggle('cell-selected', false);
+        }    
+        this.updateHeadersEtcIvNecessary();
+    }
+
+    toggleDate(index: number) {
+        let cells = this.$el.querySelectorAll('.single-day');
+        cells[index].classList.toggle('cell-selected');
+        this.updateHeadersEtcIvNecessary();
+    }
+
+    selectedDate(index: number) {
+        let cells = this.$el.querySelectorAll('.single-day');
+        cells[index].classList.toggle('cell-selected', true);
+        this.updateHeadersEtcIvNecessary();
+    }
+
+    unselectDate(index: number) {
+        let cells = this.$el.querySelectorAll('.single-day');
+        cells[index].classList.toggle('cell-selected', false);
+        this.updateHeadersEtcIvNecessary();
+    }
+
+    updateHeadersEtcIvNecessary() {
+        let indiciesSelected = this.getSelectedIndicies();
+
+        // Days of week
+        let days = this.$el.querySelectorAll('.day-of-week');
         for ( var i = 0; i < days.length; i++ ) {
-            if ( indiciesSelected[i] && indiciesSelected[i+7] ) {
+            if ( this.getDayOfWeekSelectCount(i) == 2 ) {
                 days[i].classList.toggle('cell-selected', true);
             } else {
                 days[i].classList.toggle('cell-selected', false);
             }
         }
 
+        // Weeks
         let weeks = this.$el.querySelectorAll('.week');
         for ( var i = 0; i < weeks.length; i++ ) {
-            let counter = 0;
-            for ( var j = 0; j < 7; j++ ) {
-                if ( indiciesSelected[i*7+j] ) {
-                    counter++;
-                }
-            }
-
-            if ( counter == 7 ) {
+            if ( this.getWeekSelectCount(i) == 7 ) {
                 weeks[i].classList.toggle('cell-selected', true);
             } else {
                 weeks[i].classList.toggle('cell-selected', false);
             }
         }
+
+        // All
+        let all = this.$el.querySelector('.all');
+        if ( all !== null ) {
+            if ( this.getAllSelectCount() == 14 ) {
+                all.classList.toggle('cell-selected', true);
+            } else {
+                all.classList.toggle('cell-selected', false);
+            }
+        }
     }
 
-    private setupGestures() {
+    setupGestures() {
         let comp = this;
-        let days = this.$el.querySelectorAll('.day');
+        let days = this.$el.querySelectorAll('.day-of-week');
         let weeks = this.$el.querySelectorAll('.week');
         let cells = this.$el.querySelectorAll('.single-day');
+        let all = this.$el.querySelector(".all");
 
 
         // Header days
@@ -105,23 +240,11 @@ export default class PercentageCalendarNavigationComponent extends Vue {
             days[i].addEventListener("click", function(event) {
                 if ( event.target !== null ) {
                     let node = event.target as HTMLElement;
-                    let index = parseInt(node.dataset.index as string);
-
-                    if ( index !== null ) {
-                        let has_a = cells[index].classList.contains("cell-selected");
-                        let has_b = cells[index+7].classList.contains("cell-selected");
-                        let semi_state = (has_a && !has_b) || (!has_a && has_b);
-
-                        if ( semi_state ) {
-                            cells[index].classList.toggle('cell-selected', true);
-                            cells[index+7].classList.toggle('cell-selected', true);
-                        } else {
-                            cells[index].classList.toggle('cell-selected');
-                            cells[index+7].classList.toggle('cell-selected');
-                        }                        
+                    let dayOfWeek = parseInt(node.dataset.index as string);
+                    if ( dayOfWeek !== null ) {
+                        comp.toggleDayOfWeek(dayOfWeek);
                     }
                 }
-                comp.updateHeadersEtcIvNecessary();
             });
         }
 
@@ -130,28 +253,11 @@ export default class PercentageCalendarNavigationComponent extends Vue {
             weeks[i].addEventListener("click", function(event) {
                 if ( event.target !== null ) {
                     let node = event.target as HTMLElement;
-                    let index = parseInt(node.dataset.index as string);
-
-                    if ( index !== null ) {
-                        let counter = 0;
-                        for ( var j = 0; j < 7; j++ ) {
-                            if ( cells[index*7+j].classList.contains("cell-selected") ) {
-                                counter++;
-                            }
-                        }
-
-                        let semi_state = counter != 7 && counter != 0;
-
-                        for ( var j = 0; j < 7; j++ ) {
-                            if ( semi_state ) {
-                                cells[index*7+j].classList.toggle("cell-selected", true);
-                            } else {
-                                cells[index*7+j].classList.toggle("cell-selected");
-                            }
-                        }                   
+                    let week = parseInt(node.dataset.index as string);
+                    if ( week !== null ) {                 
+                        comp.toggleWeek(week);
                     }
                 }
-                comp.updateHeadersEtcIvNecessary();
             });
         }
 
@@ -159,13 +265,21 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         for ( var i = 0; i < cells.length; i++ ) {
             cells[i].addEventListener("click", function(event) {
                 if ( event.target !== null ) {
-                    let td_cell = (event.target as HTMLElement).closest('.single-day');
+                    let td_cell = (event.target as HTMLElement).closest('.single-day') as HTMLElement;
                     if ( td_cell !== null ) {
-                        td_cell.classList.toggle("cell-selected");
+                        let day = parseInt(td_cell.dataset.index as string);
+                        if ( day !== null ) {
+                            comp.toggleDate(day);
+                        }
                     }
                 }
+            });
+        }
 
-                comp.updateHeadersEtcIvNecessary();
+        // All
+        if ( all !== null ) {
+            all.addEventListener("click", function(event) {
+                comp.toggleAll();
             });
         }
     }
