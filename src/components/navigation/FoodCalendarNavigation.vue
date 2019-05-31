@@ -76,14 +76,24 @@ export default class FoodCalendarNavigationComponent extends Vue {
         });
     }
 
-    updateIcons() {
+    setFoodTypes(types: Array<FoodType>) {
+        this.food_types = types;
+        this.updateIcons();
+    }
+
+    setFoodType(index: number, type: FoodType) {
+        this.food_types[index] = type;
+        this.updateIcons();
+    }
+
+    private updateIcons() {
         let cells = this.$el.querySelectorAll('.single-day');
         for ( var i = 0; i < cells.length; i++ ) {
             this.setIcon(i, this.food_types[i]);
         }
     }
 
-    setIcon(index: number, type: FoodType) {
+    private setIcon(index: number, type: FoodType) {
         let cells = this.$el.querySelectorAll('.single-day');
         var node = cells[index];
         while ( node.firstChild ) { node.removeChild(node.firstChild); }
@@ -268,7 +278,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         }
     }
 
-    setupGestures() {
+    private setupGestures() {
         let comp = this;
         let days = this.$el.querySelectorAll('.day-of-week');
         let weeks = this.$el.querySelectorAll('.week');
