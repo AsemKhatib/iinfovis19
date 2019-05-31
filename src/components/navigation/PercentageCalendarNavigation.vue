@@ -1,7 +1,7 @@
 <!-- HTML Content -->
 <template>
     <div style="padding: 1rem;">
-        <table class="calendar-nav">
+        <table class="calendar-nav noselect">
             <thead>
                 <tr>
                     <th class="all">all</th>
@@ -328,6 +328,16 @@ export default class PercentageCalendarNavigationComponent extends Vue {
 
 <!-- (S)CSS content -->
 <style>
+    .noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+    }
+
     .calendar-nav {
         width: 100%;
         border-collapse: separate;
@@ -336,6 +346,7 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         border-spacing: 0;
         border-bottom-left-radius: 0.3rem;
         border-bottom-right-radius: 0.3rem;
+        overflow: hidden;
     }
 
     .calendar-nav thead {
@@ -352,7 +363,7 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         padding-top: 0.75rem;
         padding-bottom: 0.75rem;
         background-color: rgb(249, 29, 133, 0.0);
-        transition: background-color 0.4s ease-out;
+        transition: background-color 0.25s ease-in-out;
     }
 
     .calendar-nav th:hover {
@@ -378,7 +389,7 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         border-top: 0.05rem solid #aaa;
         border-right: 0.05rem solid #aaa;
         background-color: rgb(249, 29, 133, 0.0);
-        transition: background-color 0.4s ease-out;
+        transition: background-color 0.25s ease-in-out;
         text-align: center;
     }
 

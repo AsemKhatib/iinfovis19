@@ -2,7 +2,6 @@
 <!-- HTML Content -->
 <template>
     <div>
-        Hello World!
         <div class="row">
             <div class="col-md-12 col-lg-4">
                 <food-component />
