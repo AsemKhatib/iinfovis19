@@ -41,6 +41,8 @@
     "webpack": "^4.14.0",
     "webpack-cli": "^3.1.2",
     "snapsvg-cjs": "^0.0.6",
-    "@types/snapsvg": "0.4.32"
+    "@types/snapsvg": "0.4.32",
+    "vivus": "^0.4.4",
+    "@types/vivus": "^0.4.0"
   }
 }

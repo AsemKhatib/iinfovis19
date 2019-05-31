@@ -13,3 +13,9 @@ export interface FoodEntry extends Entry {
     size: 'snack' | 'fullMeal';
     place: 'home' | 'canteen' | 'resturant' | 'elsewhere';
 }
+
+export enum FoodType {
+    MEAT = "MEAT",
+    VEGETARIAN = "VEGETARIAN",
+    VEGAN = "VEGAN"
+}
