@@ -15,22 +15,22 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
                 </tr>
                 <tr>
-                    <td><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
                 </tr>
             </tbody>
         </table>
@@ -41,6 +41,8 @@
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 import * as SNAPSVG_TYPE from "snapsvg";
+import vue-jquery from 'vue-jquery';
+
 declare var Snap: typeof SNAPSVG_TYPE;
 
 @Component
@@ -49,8 +51,16 @@ export default class PercentageCalendarNavigationComponent extends Vue {
 
     mounted() {
         this.$nextTick(function() {
+            this.setupGestures();
             this.updatePercentages();
         });
+    }
+
+    private setupGestures() {
+        let cells = this.$el.querySelectorAll('.day');
+        for ( var i = 0; i < cells.length; i++ ) {
+            $(cells[i]).
+        }
     }
 
     setPercentages(values: number[]) {
@@ -79,8 +89,7 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         this.updatePercentages();
     }
 
-    @Watch("percentages")
-    updatePercentages() {
+    private updatePercentages() {
         let svgs = this.$el.querySelectorAll('.value');
 
         for ( var i = 0; i < this.percentages.length; i++ ) {
@@ -135,9 +144,16 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         width: 14%;
         border-top: 0.05rem solid #aaa;
         border-right: 0.05rem solid #aaa;
+        background-color: rgba(65, 198, 194, 0.0);
+        transition: background-color 0.4s ease-out;
+
     }
 
     .calendar-nav td:last-of-type {
         border-right: none;
+    }
+
+    .cell-selected {
+        background-color: rgba(65, 198, 194, 0.5);
     }
 </style>
