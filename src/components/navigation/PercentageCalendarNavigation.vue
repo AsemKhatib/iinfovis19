@@ -4,33 +4,36 @@
         <table class="calendar-nav">
             <thead>
                 <tr>
-                    <th>Mon</th>
-                    <th>Tue</th>
-                    <th>Wed</th>
-                    <th>Thu</th>
-                    <th>Fri</th>
-                    <th>Sat</th>
-                    <th>Sun</th>
+                    <th class="all">all</th>
+                    <th class="day" data-index="0">Mon</th>
+                    <th class="day" data-index="1">Tue</th>
+                    <th class="day" data-index="2">Wed</th>
+                    <th class="day" data-index="3">Thu</th>
+                    <th class="day" data-index="4">Fri</th>
+                    <th class="day" data-index="5">Sat</th>
+                    <th class="day" data-index="6">Sun</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="week" data-index="0">W 1</td>
+                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
                 </tr>
                 <tr>
-                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
-                    <td class="day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff"/></svg></td>
+                    <td class="week" data-index="1">W 1</td>
+                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
+                    <td class="single-day"><svg class="value" width="100%" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0" fill="#f4c842ff" stroke="white" stroke-width="2"/></svg></td>
                 </tr>
             </tbody>
         </table>
@@ -41,7 +44,6 @@
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 import * as SNAPSVG_TYPE from "snapsvg";
-import vue-jquery from 'vue-jquery';
 
 declare var Snap: typeof SNAPSVG_TYPE;
 
@@ -56,10 +58,115 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         });
     }
 
-    private setupGestures() {
-        let cells = this.$el.querySelectorAll('.day');
+    updateHeadersEtcIvNecessary() {
+        let indiciesSelected = [false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+        let cells = this.$el.querySelectorAll('.single-day');
         for ( var i = 0; i < cells.length; i++ ) {
-            $(cells[i]).
+            if ( cells[i].classList.contains("cell-selected") ) {
+                indiciesSelected[i] = true;
+            }
+        }
+
+        let days = this.$el.querySelectorAll('.day');
+        for ( var i = 0; i < days.length; i++ ) {
+            if ( indiciesSelected[i] && indiciesSelected[i+7] ) {
+                days[i].classList.toggle('cell-selected', true);
+            } else {
+                days[i].classList.toggle('cell-selected', false);
+            }
+        }
+
+        let weeks = this.$el.querySelectorAll('.week');
+        for ( var i = 0; i < weeks.length; i++ ) {
+            let counter = 0;
+            for ( var j = 0; j < 7; j++ ) {
+                if ( indiciesSelected[i*7+j] ) {
+                    counter++;
+                }
+            }
+
+            if ( counter == 7 ) {
+                weeks[i].classList.toggle('cell-selected', true);
+            } else {
+                weeks[i].classList.toggle('cell-selected', false);
+            }
+        }
+    }
+
+    private setupGestures() {
+        let comp = this;
+        let days = this.$el.querySelectorAll('.day');
+        let weeks = this.$el.querySelectorAll('.week');
+        let cells = this.$el.querySelectorAll('.single-day');
+
+
+        // Header days
+        for ( var i = 0; i < days.length; i++ ) {
+            days[i].addEventListener("click", function(event) {
+                if ( event.target !== null ) {
+                    let node = event.target as HTMLElement;
+                    let index = parseInt(node.dataset.index as string);
+
+                    if ( index !== null ) {
+                        let has_a = cells[index].classList.contains("cell-selected");
+                        let has_b = cells[index+7].classList.contains("cell-selected");
+                        let semi_state = (has_a && !has_b) || (!has_a && has_b);
+
+                        if ( semi_state ) {
+                            cells[index].classList.toggle('cell-selected', true);
+                            cells[index+7].classList.toggle('cell-selected', true);
+                        } else {
+                            cells[index].classList.toggle('cell-selected');
+                            cells[index+7].classList.toggle('cell-selected');
+                        }                        
+                    }
+                }
+                comp.updateHeadersEtcIvNecessary();
+            });
+        }
+
+        // Vertical header weeks
+        for ( var i = 0; i < weeks.length; i++ ) {
+            weeks[i].addEventListener("click", function(event) {
+                if ( event.target !== null ) {
+                    let node = event.target as HTMLElement;
+                    let index = parseInt(node.dataset.index as string);
+
+                    if ( index !== null ) {
+                        let counter = 0;
+                        for ( var j = 0; j < 7; j++ ) {
+                            if ( cells[index*7+j].classList.contains("cell-selected") ) {
+                                counter++;
+                            }
+                        }
+
+                        let semi_state = counter != 7 && counter != 0;
+
+                        for ( var j = 0; j < 7; j++ ) {
+                            if ( semi_state ) {
+                                cells[index*7+j].classList.toggle("cell-selected", true);
+                            } else {
+                                cells[index*7+j].classList.toggle("cell-selected");
+                            }
+                        }                   
+                    }
+                }
+                comp.updateHeadersEtcIvNecessary();
+            });
+        }
+
+        // Body cells
+        for ( var i = 0; i < cells.length; i++ ) {
+            cells[i].addEventListener("click", function(event) {
+                if ( event.target !== null ) {
+                    let td_cell = (event.target as HTMLElement).closest('.single-day');
+                    if ( td_cell !== null ) {
+                        td_cell.classList.toggle("cell-selected");
+                    }
+                }
+
+                comp.updateHeadersEtcIvNecessary();
+            });
         }
     }
 
@@ -123,11 +230,23 @@ export default class PercentageCalendarNavigationComponent extends Vue {
     }
 
     .calendar-nav th {
-        width: 14%;
+        width: 12.495%;
         padding: 0;
         margin: 0;
         font-weight: normal !important;
         text-align: center;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        background-color: rgb(249, 29, 133, 0.0);
+        transition: background-color 0.4s ease-out;
+    }
+
+    .calendar-nav th:hover {
+        cursor: pointer;
+    }
+
+    .calendar-nav th.cell-selected {
+        color: white !important;
     }
 
     .calendar-nav th {
@@ -141,12 +260,20 @@ export default class PercentageCalendarNavigationComponent extends Vue {
     .calendar-nav td {
         padding: 0;
         margin: 0;
-        width: 14%;
+        width: 12.495%;
         border-top: 0.05rem solid #aaa;
         border-right: 0.05rem solid #aaa;
-        background-color: rgba(65, 198, 194, 0.0);
+        background-color: rgb(249, 29, 133, 0.0);
         transition: background-color 0.4s ease-out;
+        text-align: center;
+    }
 
+    .calendar-nav td.cell-selected {
+        color: white !important;
+    }
+
+    .calendar-nav td:hover {
+        cursor: pointer;
     }
 
     .calendar-nav td:last-of-type {
@@ -154,6 +281,6 @@ export default class PercentageCalendarNavigationComponent extends Vue {
     }
 
     .cell-selected {
-        background-color: rgba(65, 198, 194, 0.5);
+        background-color: rgb(249, 29, 133, 1.0) !important;
     }
 </style>
