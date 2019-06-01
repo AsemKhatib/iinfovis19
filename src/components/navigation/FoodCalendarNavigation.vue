@@ -375,7 +375,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         padding-top: 0.75rem;
         padding-bottom: 0.75rem;
         background-color: rgb(249, 29, 133, 0.0);
-        transition: background-color 0.25s ease-in-out;
+        transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
     }
 
     .calendar-nav th:hover {
@@ -401,7 +401,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         border-top: 0.05rem solid #aaa;
         border-right: 0.05rem solid #aaa;
         background-color: rgb(249, 29, 133, 0.0);
-        transition: background-color 0.25s ease-in-out;
+        transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
         text-align: center;
     }
 
