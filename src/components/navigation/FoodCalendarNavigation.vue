@@ -4,36 +4,36 @@
         <table class="calendar-nav noselect">
             <thead>
                 <tr>
-                    <th class="all">all</th>
-                    <th class="day-of-week" data-index="0">Mon</th>
-                    <th class="day-of-week" data-index="1">Tue</th>
-                    <th class="day-of-week" data-index="2">Wed</th>
-                    <th class="day-of-week" data-index="3">Thu</th>
-                    <th class="day-of-week" data-index="4">Fri</th>
-                    <th class="day-of-week" data-index="5">Sat</th>
-                    <th class="day-of-week" data-index="6">Sun</th>
+                    <th class="cell-selected all">all</th>
+                    <th class="cell-selected day-of-week" data-index="0">Mon</th>
+                    <th class="cell-selected day-of-week" data-index="1">Tue</th>
+                    <th class="cell-selected day-of-week" data-index="2">Wed</th>
+                    <th class="cell-selected day-of-week" data-index="3">Thu</th>
+                    <th class="cell-selected day-of-week" data-index="4">Fri</th>
+                    <th class="cell-selected day-of-week" data-index="5">Sat</th>
+                    <th class="cell-selected day-of-week" data-index="6">Sun</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="week" data-index="0">W 1</td>
-                    <td class="single-day" data-index="0"></td>
-                    <td class="single-day" data-index="1"></td>
-                    <td class="single-day" data-index="2"></td>
-                    <td class="single-day" data-index="3"></td>
-                    <td class="single-day" data-index="4"></td>
-                    <td class="single-day" data-index="5"></td>
-                    <td class="single-day" data-index="6"></td>
+                    <td class="cell-selected week" data-index="0">W 1</td>
+                    <td class="cell-selected single-day" data-index="0"></td>
+                    <td class="cell-selected single-day" data-index="1"></td>
+                    <td class="cell-selected single-day" data-index="2"></td>
+                    <td class="cell-selected single-day" data-index="3"></td>
+                    <td class="cell-selected single-day" data-index="4"></td>
+                    <td class="cell-selected single-day" data-index="5"></td>
+                    <td class="cell-selected single-day" data-index="6"></td>
                 </tr>
                 <tr>
-                    <td class="week" data-index="1">W 2</td>
-                    <td class="single-day" data-index="7"></td>
-                    <td class="single-day" data-index="8"></td>
-                    <td class="single-day" data-index="9"></td>
-                    <td class="single-day" data-index="10"></td>
-                    <td class="single-day" data-index="11"></td>
-                    <td class="single-day" data-index="12"></td>
-                    <td class="single-day" data-index="13"></td>
+                    <td class="cell-selected week" data-index="1">W 2</td>
+                    <td class="cell-selected single-day" data-index="7"></td>
+                    <td class="cell-selected single-day" data-index="8"></td>
+                    <td class="cell-selected single-day" data-index="9"></td>
+                    <td class="cell-selected single-day" data-index="10"></td>
+                    <td class="cell-selected single-day" data-index="11"></td>
+                    <td class="cell-selected single-day" data-index="12"></td>
+                    <td class="cell-selected single-day" data-index="13"></td>
                 </tr>
             </tbody>
         </table>
@@ -353,12 +353,13 @@ export default class FoodCalendarNavigationComponent extends Vue {
     .calendar-nav {
         width: 100%;
         border-collapse: separate;
-        border: 0.05rem solid #aaa;
+        border: 0.1rem solid #000;
         border-radius: 0.3rem;
         border-spacing: 0;
         border-bottom-left-radius: 0.3rem;
         border-bottom-right-radius: 0.3rem;
         overflow: hidden;
+        font-size: 0.9rem;
     }
 
     .calendar-nav thead {
@@ -374,7 +375,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         text-align: center;
         padding-top: 0.75rem;
         padding-bottom: 0.75rem;
-        background-color: rgb(249, 29, 133, 0.0);
+        background-color: rgb(239, 26, 103, 0.0);
         transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
     }
 
@@ -387,7 +388,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
     }
 
     .calendar-nav th {
-        border-right: 0.05rem solid #aaa;
+        border-right: 0.05rem solid #000;
     }
 
     .calendar-nav th:last-of-type {
@@ -398,9 +399,9 @@ export default class FoodCalendarNavigationComponent extends Vue {
         padding: 0;
         margin: 0;
         width: 12.495%;
-        border-top: 0.05rem solid #aaa;
-        border-right: 0.05rem solid #aaa;
-        background-color: rgb(249, 29, 133, 0.0);
+        border-top: 0.05rem solid #000;
+        border-right: 0.05rem solid #000;
+        background-color: rgb(239, 26, 103, 0.0);
         transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
         text-align: center;
     }
@@ -418,6 +419,6 @@ export default class FoodCalendarNavigationComponent extends Vue {
     }
 
     .cell-selected {
-        background-color: rgb(249, 29, 133, 1.0) !important;
+        background-color: rgb(239, 26, 103, 0.75) !important;
     }
 </style>
