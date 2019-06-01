@@ -2,7 +2,7 @@
 <!-- HTML Content -->
 <template>
     <div>
-        <parser-component></parser-component>
+        <!-- <parser-component></parser-component> -->
         <div class="row">
             <div class="col-md-12 col-lg-4">
                 <food-component />
