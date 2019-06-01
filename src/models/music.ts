@@ -1,6 +1,6 @@
-import { EntryGroup, Entry, General } from "./common";
+import { EntryGroup, Entry, Category } from "./common";
 
-export interface Music extends General {
+export interface Music extends Category {
     entryGroups: MusicEntryGroup[];
 }
 
