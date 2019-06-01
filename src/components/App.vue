@@ -2,6 +2,7 @@
 <!-- HTML Content -->
 <template>
     <div>
+        <!-- <parser-component></parser-component> -->
         <div class="row">
             <div class="col-md-12 col-lg-4">
                 <food-component />
@@ -25,9 +26,10 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 import FoodComponent from "./Food.vue";
 import MusicComponent from "./Music.vue";
 import SocializingComponent from "./Socializing.vue";
+import ParserComponent from "../util/Parser.vue";
 
 @Component({
-    components: {FoodComponent, MusicComponent, SocializingComponent}
+    components: {FoodComponent, MusicComponent, SocializingComponent, ParserComponent}
 })
 export default class App extends Vue {
 

@@ -1,6 +1,6 @@
-import { General, EntryGroup, Entry } from "./common";
+import { Category, EntryGroup, Entry } from "./common";
 
-export interface Socializing extends General {
+export interface Socializing extends Category {
     entryGroups: SocializingEntryGroup[];
 }
 
