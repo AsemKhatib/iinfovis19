@@ -4,24 +4,16 @@
         <table class="person-nav noselect">
             <thead>
                 <tr>
-                    <th class="person cell-selected">all</th>
-                    <th class="person cell-selected">Ahmad</th>
-                    <th class="person cell-selected">Anna-Lena</th>
-                    <th class="person cell-selected">Asem</th>
-                    <th class="person cell-selected">Lars</th>
-                    <th class="person cell-selected">Peter</th>
-                    <th class="person cell-selected">Xenia</th>                    
+                    <th class="all person-selected">all</th>
+                    <th data-index="0" class="person person-selected">Ahmad</th>
+                    <th data-index="1" class="person person-selected">Anna-Lena</th>
+                    <th data-index="2" class="person person-selected">Asem</th>
+                    <th data-index="3" class="person person-selected">Lars</th>
+                    <th data-index="4" class="person person-selected">Peter</th>
+                    <th data-index="5" class="person person-selected">Xenia</th>                    
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td class="person-selector cell-selected"></td>
-                    <td class="person-selector cell-selected"></td>
-                    <td class="person-selector cell-selected"></td>
-                    <td class="person-selector cell-selected"></td>
-                    <td class="person-selector cell-selected"></td>
-                </tr>
             </tbody>
         </table>
     </div>
@@ -41,14 +33,123 @@ export default class PersonSelectorNavigationComponent extends Vue {
     mounted() {
         this.$nextTick(function() {
             this.setupGestures();
-            
+            this.updateAllButton();
         });
     }
 
+    getSelectedIndicies(): Array<boolean> {
+        let indiciesSelected = [false, false, false, false, false, false];
+        let persons = this.$el.querySelectorAll('.person');
+        for ( var i = 0; i < persons.length; i++ ) {
+            if ( persons[i].classList.contains('person-selected') ) {
+                indiciesSelected[i] = true;
+            }
+        }
+        return indiciesSelected;
+    }
+
+    getSelectedPersons(): Array<string> {
+        let personsSelected = Array();
+        let persons = this.$el.querySelectorAll('.person');
+        for ( var i = 0; i < persons.length; i++ ) {
+            if ( persons[i].classList.contains('person-selected') ) {
+                personsSelected.push(persons[i].innerHTML);
+            }
+        }
+        return personsSelected;
+    }
+
+    updateAllButton() {
+        let all = this.$el.querySelector('.all');
+        if ( all !== null ) {
+            if ( this.getPersonSelectCount() == 6 ) {
+                all.classList.toggle('person-selected', true);
+            } else {
+                all.classList.toggle('person-selected', false);
+            }
+        }
+    }
+
+    getPersonSelectCount(): number {
+        let persons = this.$el.querySelectorAll('.person');
+        let counter = 0;
+        for ( var i = 0; i < persons.length; i++ ) {
+            if ( persons[i].classList.contains("person-selected") ) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    toggleAllPersons() {
+        if ( this.getPersonSelectCount() == 6 ) {
+            this.unselectAllPersons();
+        } else {
+            this.selectAllPersons();
+        }
+    }
+
+    selectAllPersons() {
+        let persons = this.$el.querySelectorAll('.person');
+        for ( var i = 0; i < persons.length; i++ ) {
+            persons[i].classList.toggle('person-selected', true);
+        }
+        this.updateAllButton();
+    }
+
+    unselectAllPersons() {
+        let persons = this.$el.querySelectorAll('.person');
+        for ( var i = 0; i < persons.length; i++ ) {
+            persons[i].classList.toggle('person-selected', false);
+        }
+        this.updateAllButton();
+    }
+
+    isPersonsSelectedByIndex(index: number): boolean {
+        let persons = this.$el.querySelectorAll('.person');
+        return persons[index].classList.contains("person-selected");
+    }
+
+    togglePersonByIndex(index: number) {
+        let persons = this.$el.querySelectorAll('.person');
+        persons[index].classList.toggle('person-selected');
+        this.updateAllButton();
+    }
+
+    selectPersonByIndex(index: number) {
+        let persons = this.$el.querySelectorAll('.person');
+        persons[index].classList.toggle('person-selected', true);
+        this.updateAllButton();
+    }
+
+    unselectPersonByIndex(index: number) {
+        let persons = this.$el.querySelectorAll('.person');
+        persons[index].classList.toggle('person-selected', false);
+        this.updateAllButton();
+    }
     
 
     private setupGestures() {
+        let comp = this;
+        let persons = this.$el.querySelectorAll('.person');
+        
+        let all = this.$el.querySelector('.all');
+        if ( all !== null ) {
+            all.addEventListener('click', function(event) {
+                comp.toggleAllPersons();
+            });
+        }
 
+        for ( var i = 0; i < persons.length; i++ ) {
+            persons[i].addEventListener('click', function(event) {
+                let node = event.target as HTMLObjectElement;
+                if ( node !== null ) {
+                    let personIndex = parseInt(node.dataset.index as string);
+                    comp.togglePersonByIndex(personIndex);
+                    console.log("Hello");
+                }
+            });
+        }
     }
 }
 </script>
@@ -90,7 +191,7 @@ export default class PersonSelectorNavigationComponent extends Vue {
         text-align: center;
         padding-top: 0.75rem;
         padding-bottom: 0.75rem;
-        background-color: rgb(239, 26, 103, 0.0);
+        background-color: rgb(255, 255, 255, 1.0);
         transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
     }
 
@@ -98,7 +199,7 @@ export default class PersonSelectorNavigationComponent extends Vue {
         cursor: pointer;
     }
 
-    .person-nav th.cell-selected {
+    .person-nav th.person-selected {
         color: white !important;
     }
 
@@ -116,12 +217,12 @@ export default class PersonSelectorNavigationComponent extends Vue {
         width: 12.495%;
         border-top: 0.05rem solid #000;
         border-right: 0.05rem solid #000;
-        background-color: rgb(239, 26, 103, 0.0);
+        background-color: rgb(255, 255, 255, 1.0);
         transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
         text-align: center;
     }
 
-    .person-nav td.cell-selected {
+    .person-nav td.person-selected {
         color: white !important;
     }
 
@@ -133,7 +234,7 @@ export default class PersonSelectorNavigationComponent extends Vue {
         border-right: none;
     }
 
-    .cell-selected {
-        background-color: rgb(239, 26, 103, 0.75) !important;
+    .person-selected {
+        background-color: rgb(17, 181, 226)!important;
     }
 </style>

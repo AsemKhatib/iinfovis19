@@ -6,8 +6,7 @@
             Food Component
         </center>
         
-        <food-calendar-navigation-component ref="nav"/>
-        <person-selector-navigation-component ref="person-nav"/>
+        <food-navigation-component ref="nav"/>
         
     </div>
 </template>
@@ -15,11 +14,10 @@
 <!-- Typescript content --> 
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
-import FoodCalendarNavigationComponent from "./navigation/FoodCalendarNavigation.vue";
-import PersonSelectorNavigationComponent from "./navigation/PersonSelectorNavigation.vue";
+import FoodNavigationComponent from "./navigation/FoodNavigation.vue";
 
 @Component({
-    components: {FoodCalendarNavigationComponent, PersonSelectorNavigationComponent}
+    components: {FoodNavigationComponent}
 })
 export default class FoodComponent extends Vue {
 
