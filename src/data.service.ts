@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export default {
-    getData(screen: string) {
-        return axios.get('./data/' + screen + '.json');
+    getData(fileName: string) {
+        return axios.get('./data/' + fileName + '.json');
     },
     getCSV() {
         return axios.get('./csv/DataCollection_Xenia - Music.csv');
