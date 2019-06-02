@@ -65,16 +65,19 @@ export default class FoodCalendarNavigationComponent extends Vue {
     milk_img: Element | null = null;
     leaf_img: Element | null = null;
 
+    blockEvents: boolean = false;
+
     private indiciesChangedListeners: CalendarNavigationIndiciesChangedListener[] = [];
     addCalendarNavigationIndiciesChangedListener(listener: CalendarNavigationIndiciesChangedListener) {
         this.indiciesChangedListeners.push(listener);
     }
     private fireIndiciesChangedListeners(indicies: boolean[]) {
+        if ( this.blockEvents ) return;
         for ( var i = 0; i < this.indiciesChangedListeners.length; i++ ) {
-            this.indiciesChangedListeners[i].fire(indicies);
+            this.indiciesChangedListeners[i].fireDayIndicies(indicies);
         }
     }
-    private fireIndiciesChangedListenersPullRecents() {
+    fireIndiciesChangedListenersPullRecents() {
         this.fireIndiciesChangedListeners(this.getSelectedIndicies());
     }
 
@@ -85,8 +88,11 @@ export default class FoodCalendarNavigationComponent extends Vue {
             this.leaf_img = this.$el.querySelector('#leaf-img');
 
             this.updateIcons();
-
             this.setupGestures();
+
+            this.$nextTick(function() {
+                this.fireIndiciesChangedListenersPullRecents();
+            });
         });
     }
 
@@ -122,7 +128,10 @@ export default class FoodCalendarNavigationComponent extends Vue {
         
     }
 
-    setSelectedIndicies(indicies: boolean[]) {
+    setSelectedIndicies(indicies: boolean[], blockEvents: boolean = false) {
+        let oldBlock = this.blockEvents;
+        this.blockEvents = blockEvents;
+
         for ( var i = 0; i < indicies.length; i++ ) {
             if ( indicies[i] ) {
                 this.selectedDate(i);
@@ -130,6 +139,8 @@ export default class FoodCalendarNavigationComponent extends Vue {
                 this.unselectDate(i);
             }
         }
+
+        this.blockEvents = oldBlock;
     }
 
     getSelectedIndicies(): Array<boolean> {
@@ -259,6 +270,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         let cells = this.$el.querySelectorAll('.single-day');
         cells[index].classList.toggle('cell-selected');
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     selectedDate(index: number) {

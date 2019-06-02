@@ -52,16 +52,19 @@ declare var Snap: typeof SNAPSVG_TYPE;
 export default class PercentageCalendarNavigationComponent extends Vue {
     percentages: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
+    blockEvents: boolean = false;
+
     private indiciesChangedListeners: CalendarNavigationIndiciesChangedListener[] = [];
     addCalendarNavigationIndiciesChangedListener(listener: CalendarNavigationIndiciesChangedListener) {
         this.indiciesChangedListeners.push(listener);
     }
     private fireIndiciesChangedListeners(indicies: boolean[]) {
+        if ( this.blockEvents ) return;
         for ( var i = 0; i < this.indiciesChangedListeners.length; i++ ) {
-            this.indiciesChangedListeners[i].fire(indicies);
+            this.indiciesChangedListeners[i].fireDayIndicies(indicies);
         }
     }
-    private fireIndiciesChangedListenersPullRecents() {
+    fireIndiciesChangedListenersPullRecents() {
         this.fireIndiciesChangedListeners(this.getSelectedIndicies());
     }
 
@@ -69,10 +72,17 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         this.$nextTick(function() {
             this.setupGestures();
             this.updatePercentages();
+
+            this.$nextTick(function() {
+                this.fireIndiciesChangedListenersPullRecents();
+            });
         });
     }
 
-    setSelectedIndicies(indicies: boolean[]) {
+    setSelectedIndicies(indicies: boolean[], blockEvents: boolean = false) {
+        let oldBlock = this.blockEvents;
+        this.blockEvents = blockEvents;
+
         for ( var i = 0; i < indicies.length; i++ ) {
             if ( indicies[i] ) {
                 this.selectedDate(i);
@@ -80,6 +90,8 @@ export default class PercentageCalendarNavigationComponent extends Vue {
                 this.unselectDate(i);
             }
         }
+
+        this.blockEvents = oldBlock;
     }
 
     getSelectedIndicies(): Array<boolean> {
@@ -209,6 +221,7 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         let cells = this.$el.querySelectorAll('.single-day');
         cells[index].classList.toggle('cell-selected');
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     selectedDate(index: number) {

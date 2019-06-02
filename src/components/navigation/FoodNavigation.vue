@@ -50,6 +50,7 @@ import FoodCalendarNavigationComponent from "./FoodCalendarNavigation.vue";
 import PersonSelectorNavigationComponent from "./PersonSelectorNavigation.vue";
 import { FoodType } from "../../models/food";
 import PercentageNavigationComponent from "./PercentageNavigation.vue";
+import { CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener} from "./Listeners";
 
 const longclick_delay = 600;
 
@@ -75,6 +76,14 @@ export default class FoodNavigationComponent extends Vue {
         });
     }
 
+    addCalendarNavigationIndiciesChangedListener(listener: CalendarNavigationIndiciesChangedListener) {
+        (this.$refs.calendarNav as FoodCalendarNavigationComponent).addCalendarNavigationIndiciesChangedListener(listener);
+    }
+
+    addPersonNavigationIndiciesChangedListener(listener: PersonNavigationIndiciesChangedListener) {
+        (this.$refs.personNav as PersonSelectorNavigationComponent).addPersonNavigationIndiciesChangedListener(listener);
+    }
+
     setupSync() {
         let sync = this.$el.querySelector('.nav-sync') as HTMLElement;
         let comp = this;
@@ -90,14 +99,21 @@ export default class FoodNavigationComponent extends Vue {
         let personIndicies = this.getSelectedPersonIndicies();
 
         for ( var i = 0; i < this.otherFoodNavigationComponents.length; i++ ) {
-            this.otherFoodNavigationComponents[i].setSelectedDayIndicies(dayIndicies);
-            this.otherFoodNavigationComponents[i].setSelectedPersonIndicies(personIndicies);
+            this.otherFoodNavigationComponents[i].setSelectedDayIndicies(dayIndicies, true);
+            this.otherFoodNavigationComponents[i].setSelectedPersonIndicies(personIndicies, true);
+            this.otherFoodNavigationComponents[i].fireIndiciesChangedListenersPullRecents();
         }
 
         for ( var i = 0; i < this.otherPercentageNavigationComponents.length; i++ ) {
-            this.otherPercentageNavigationComponents[i].setSelectedDayIndicies(dayIndicies);
-            this.otherPercentageNavigationComponents[i].setSelectedPersonIndicies(personIndicies);
+            this.otherPercentageNavigationComponents[i].setSelectedDayIndicies(dayIndicies, true);
+            this.otherPercentageNavigationComponents[i].setSelectedPersonIndicies(personIndicies, true);
+            this.otherPercentageNavigationComponents[i].fireIndiciesChangedListenersPullRecents();
         }
+    }
+
+    fireIndiciesChangedListenersPullRecents() {
+        (this.$refs.calendarNav as FoodCalendarNavigationComponent).fireIndiciesChangedListenersPullRecents();
+        (this.$refs.personNav as PersonSelectorNavigationComponent).fireIndiciesChangedListenersPullRecents();
     }
 
     getSelectedDayIndicies(): boolean[] {
@@ -116,12 +132,12 @@ export default class FoodNavigationComponent extends Vue {
         (this.$refs.calendarNav as FoodCalendarNavigationComponent).setFoodTypes(types);
     }
 
-    setSelectedDayIndicies(indicies: boolean[]) {
-        (this.$refs.calendarNav as FoodCalendarNavigationComponent).setSelectedIndicies(indicies);
+    setSelectedDayIndicies(indicies: boolean[], blockEvents: boolean) {
+        (this.$refs.calendarNav as FoodCalendarNavigationComponent).setSelectedIndicies(indicies, blockEvents);
     }
 
-    setSelectedPersonIndicies(indicies: boolean[]) {
-        (this.$refs.personNav as PersonSelectorNavigationComponent).setSelectedIndicies(indicies);
+    setSelectedPersonIndicies(indicies: boolean[], blockEvents: boolean) {
+        (this.$refs.personNav as PersonSelectorNavigationComponent).setSelectedIndicies(indicies, blockEvents);
     }
 
     private setupOpenAndClose() {

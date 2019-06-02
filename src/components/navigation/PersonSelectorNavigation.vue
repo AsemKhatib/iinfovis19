@@ -30,16 +30,19 @@ declare var Snap: typeof SNAPSVG_TYPE;
 @Component
 export default class PersonSelectorNavigationComponent extends Vue {
     
+    blockEvents: boolean = false;
+
     private indiciesChangedListeners: PersonNavigationIndiciesChangedListener[] = [];
-    addCalendarNavigationIndiciesChangedListener(listener: PersonNavigationIndiciesChangedListener) {
+    addPersonNavigationIndiciesChangedListener(listener: PersonNavigationIndiciesChangedListener) {
         this.indiciesChangedListeners.push(listener);
     }
     private fireIndiciesChangedListeners(indicies: boolean[]) {
+        if ( this.blockEvents ) return;
         for ( var i = 0; i < this.indiciesChangedListeners.length; i++ ) {
-            this.indiciesChangedListeners[i].fire(indicies);
+            this.indiciesChangedListeners[i].firePersonIndicies(indicies);
         }
     }
-    private fireIndiciesChangedListenersPullRecents() {
+    fireIndiciesChangedListenersPullRecents() {
         this.fireIndiciesChangedListeners(this.getSelectedIndicies());
     }
 
@@ -50,7 +53,10 @@ export default class PersonSelectorNavigationComponent extends Vue {
         });
     }
 
-    setSelectedIndicies(indicies: boolean[]) {
+    setSelectedIndicies(indicies: boolean[], blockEvents: boolean = false) {
+        let oldBlock = this.blockEvents;
+        this.blockEvents = blockEvents;
+
         for ( var i = 0; i < indicies.length; i++ ) {
             if ( indicies[i] ) {
                 this.selectPersonByIndex(i);
@@ -58,6 +64,8 @@ export default class PersonSelectorNavigationComponent extends Vue {
                 this.unselectPersonByIndex(i);
             }
         }
+
+        this.blockEvents = oldBlock;
     }
 
     getSelectedIndicies(): Array<boolean> {

@@ -1,23 +1,7 @@
-export class CalendarNavigationIndiciesChangedListener {
-    private handler: Function;
-
-    constructor(handler: Function) {
-        this.handler = handler;
-    }
-
-    public fire(indicies: boolean[]) {
-        this.handler(indicies);
-    }
+export interface CalendarNavigationIndiciesChangedListener {
+    fireDayIndicies(indicies: boolean[]): void;
 }
 
-export class PersonNavigationIndiciesChangedListener {
-    private handler: Function;
-
-    constructor(handler: Function) {
-        this.handler = handler;
-    }
-
-    public fire(indicies: boolean[]) {
-        this.handler(indicies);
-    }
+export interface PersonNavigationIndiciesChangedListener {
+    firePersonIndicies(indicies: boolean[]): void;
 }

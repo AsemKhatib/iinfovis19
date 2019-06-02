@@ -49,6 +49,7 @@ import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 import PercentageCalendarNavigationComponent from "./PercentageCalendarNavigation.vue";
 import PersonSelectorNavigationComponent from "./PersonSelectorNavigation.vue";
 import FoodNavigationComponent from "./FoodNavigation.vue";
+import { CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener} from "./Listeners";
 
 const longclick_delay = 600;
 
@@ -74,6 +75,19 @@ export default class PercentageNavigationComponent extends Vue {
         });
     }
 
+    fireIndiciesChangedListenersPullRecents() {
+        (this.$refs.calendarNav as PercentageCalendarNavigationComponent).fireIndiciesChangedListenersPullRecents();
+        (this.$refs.personNav as PersonSelectorNavigationComponent).fireIndiciesChangedListenersPullRecents();
+    }
+
+    addCalendarNavigationIndiciesChangedListener(listener: CalendarNavigationIndiciesChangedListener) {
+        (this.$refs.calendarNav as PercentageCalendarNavigationComponent).addCalendarNavigationIndiciesChangedListener(listener);
+    }
+
+    addPersonNavigationIndiciesChangedListener(listener: PersonNavigationIndiciesChangedListener) {
+        (this.$refs.personNav as PersonSelectorNavigationComponent).addPersonNavigationIndiciesChangedListener(listener);
+    }
+
     getSelectedDayIndicies(): boolean[] {
         return (this.$refs.calendarNav as PercentageCalendarNavigationComponent).getSelectedIndicies();
     }
@@ -90,12 +104,12 @@ export default class PercentageNavigationComponent extends Vue {
         (this.$refs.calendarNav as PercentageCalendarNavigationComponent).setPercentages(percentages);
     }
 
-    setSelectedDayIndicies(indicies: boolean[]) {
-        (this.$refs.calendarNav as PercentageCalendarNavigationComponent).setSelectedIndicies(indicies);
+    setSelectedDayIndicies(indicies: boolean[], blockEvents: boolean = false) {
+        (this.$refs.calendarNav as PercentageCalendarNavigationComponent).setSelectedIndicies(indicies, blockEvents);
     }
 
-    setSelectedPersonIndicies(indicies: boolean[]) {
-        (this.$refs.personNav as PersonSelectorNavigationComponent).setSelectedIndicies(indicies);
+    setSelectedPersonIndicies(indicies: boolean[], blockEvents: boolean = false) {
+        (this.$refs.personNav as PersonSelectorNavigationComponent).setSelectedIndicies(indicies, blockEvents);
     }
 
     setupSync() {
@@ -113,13 +127,15 @@ export default class PercentageNavigationComponent extends Vue {
         let personIndicies = this.getSelectedPersonIndicies();
 
         for ( var i = 0; i < this.otherFoodNavigationComponents.length; i++ ) {
-            this.otherFoodNavigationComponents[i].setSelectedDayIndicies(dayIndicies);
-            this.otherFoodNavigationComponents[i].setSelectedPersonIndicies(personIndicies);
+            this.otherFoodNavigationComponents[i].setSelectedDayIndicies(dayIndicies, true);
+            this.otherFoodNavigationComponents[i].setSelectedPersonIndicies(personIndicies, true);
+            this.otherFoodNavigationComponents[i].fireIndiciesChangedListenersPullRecents();
         }
 
         for ( var i = 0; i < this.otherPercentageNavigationComponents.length; i++ ) {
-            this.otherPercentageNavigationComponents[i].setSelectedDayIndicies(dayIndicies);
-            this.otherPercentageNavigationComponents[i].setSelectedPersonIndicies(personIndicies);
+            this.otherPercentageNavigationComponents[i].setSelectedDayIndicies(dayIndicies, true);
+            this.otherPercentageNavigationComponents[i].setSelectedPersonIndicies(personIndicies, true);
+            this.otherPercentageNavigationComponents[i].fireIndiciesChangedListenersPullRecents();
         }
     }
 
