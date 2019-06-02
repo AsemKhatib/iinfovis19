@@ -3,7 +3,10 @@
 <template>
     <div>
         <!-- <parser-component></parser-component> -->
-        <div class="row">
+
+        <!-- PLEASE do not use row class of bootstrap -> contains negative margin -> makes working with our
+             absolute movable navs harder !!!! -->
+        <div class="my-row">
             <div class="col-md-12 col-lg-4">
                 <food-component />
             </div>
@@ -45,7 +48,12 @@ body {
     margin: 0;
     padding: 0;
     width: 100vw;
+    height: 100vh;
     overflow-x: hidden;
 
+}
+
+.my-row {
+    display: flex;
 }
 </style>
