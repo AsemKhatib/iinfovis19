@@ -44,6 +44,7 @@
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 import * as SNAPSVG_TYPE from "snapsvg";
+import { CalendarNavigationIndiciesChangedListener} from "./Listeners";
 
 declare var Snap: typeof SNAPSVG_TYPE;
 
@@ -51,11 +52,34 @@ declare var Snap: typeof SNAPSVG_TYPE;
 export default class PercentageCalendarNavigationComponent extends Vue {
     percentages: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
+    private indiciesChangedListeners: CalendarNavigationIndiciesChangedListener[] = [];
+    addCalendarNavigationIndiciesChangedListener(listener: CalendarNavigationIndiciesChangedListener) {
+        this.indiciesChangedListeners.push(listener);
+    }
+    private fireIndiciesChangedListeners(indicies: boolean[]) {
+        for ( var i = 0; i < this.indiciesChangedListeners.length; i++ ) {
+            this.indiciesChangedListeners[i].fire(indicies);
+        }
+    }
+    private fireIndiciesChangedListenersPullRecents() {
+        this.fireIndiciesChangedListeners(this.getSelectedIndicies());
+    }
+
     mounted() {
         this.$nextTick(function() {
             this.setupGestures();
             this.updatePercentages();
         });
+    }
+
+    setSelectedIndicies(indicies: boolean[]) {
+        for ( var i = 0; i < indicies.length; i++ ) {
+            if ( indicies[i] ) {
+                this.selectedDate(i);
+            } else {
+                this.unselectDate(i);
+            }
+        }
     }
 
     getSelectedIndicies(): Array<boolean> {
@@ -96,6 +120,7 @@ export default class PercentageCalendarNavigationComponent extends Vue {
             cells[i].classList.toggle('cell-selected', true);
         }  
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     unselectAll() {
@@ -104,6 +129,7 @@ export default class PercentageCalendarNavigationComponent extends Vue {
             cells[i].classList.toggle('cell-selected', false);
         }  
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     getDayOfWeekSelectCount(dayOfWeek: number): number {
@@ -141,6 +167,7 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         cells[dayOfWeek].classList.toggle('cell-selected', true);
         cells[dayOfWeek+7].classList.toggle('cell-selected', true);
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     unselectDayOfWeek(dayOfWeek: number) {
@@ -148,6 +175,7 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         cells[dayOfWeek].classList.toggle('cell-selected', false);
         cells[dayOfWeek+7].classList.toggle('cell-selected', false);
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     toggleWeek(week: number) {
@@ -165,6 +193,7 @@ export default class PercentageCalendarNavigationComponent extends Vue {
             cells[week*7+i].classList.toggle('cell-selected', true);
         }    
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     unselectWeek(week: number) {
@@ -173,6 +202,7 @@ export default class PercentageCalendarNavigationComponent extends Vue {
             cells[week*7+i].classList.toggle('cell-selected', false);
         }    
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     toggleDate(index: number) {
@@ -185,12 +215,14 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         let cells = this.$el.querySelectorAll('.single-day');
         cells[index].classList.toggle('cell-selected', true);
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     unselectDate(index: number) {
         let cells = this.$el.querySelectorAll('.single-day');
         cells[index].classList.toggle('cell-selected', false);
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     updateHeadersEtcIvNecessary() {

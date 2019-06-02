@@ -9,7 +9,7 @@
                 <div class="nav-move hidden">
                     <!-- is again relative for real content -->
                     <div class="nav-inner-container">
-                        <food-calendar-navigation-component ref="calendarNav"/>
+                        <percentage-calendar-navigation-component ref="calendarNav"/>
                         <center>
                             <div style="display: block; height: 2.5rem;">
                                 <svg height="100%" viewBox="0 0 100 100" class="nav-sync">
@@ -46,17 +46,16 @@
 <!-- Typescript content --> 
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from "vue-property-decorator";
-import FoodCalendarNavigationComponent from "./FoodCalendarNavigation.vue";
+import PercentageCalendarNavigationComponent from "./PercentageCalendarNavigation.vue";
 import PersonSelectorNavigationComponent from "./PersonSelectorNavigation.vue";
-import { FoodType } from "../../models/food";
-import PercentageNavigationComponent from "./PercentageNavigation.vue";
+import FoodNavigationComponent from "./FoodNavigation.vue";
 
 const longclick_delay = 600;
 
 @Component({
-    components: {FoodCalendarNavigationComponent, PersonSelectorNavigationComponent}
+    components: {PercentageCalendarNavigationComponent, PersonSelectorNavigationComponent}
 })
-export default class FoodNavigationComponent extends Vue {
+export default class PercentageNavigationComponent extends Vue {
 
     private otherFoodNavigationComponents: Array<FoodNavigationComponent> = [];
     private otherPercentageNavigationComponents: Array<PercentageNavigationComponent> = [];
@@ -73,6 +72,30 @@ export default class FoodNavigationComponent extends Vue {
             this.setupDrag();
             this.setupSync();
         });
+    }
+
+    getSelectedDayIndicies(): boolean[] {
+        return (this.$refs.calendarNav as PercentageCalendarNavigationComponent).getSelectedIndicies();
+    }
+
+    getSelectedPersonIndicies(): boolean[] {
+        return (this.$refs.personNav as PersonSelectorNavigationComponent).getSelectedIndicies();
+    }
+
+    getSelectedPersons(): string[] {
+        return (this.$refs.personNav as PersonSelectorNavigationComponent).getSelectedPersons();
+    }
+
+    setPercentages(percentages: number[]) {
+        (this.$refs.calendarNav as PercentageCalendarNavigationComponent).setPercentages(percentages);
+    }
+
+    setSelectedDayIndicies(indicies: boolean[]) {
+        (this.$refs.calendarNav as PercentageCalendarNavigationComponent).setSelectedIndicies(indicies);
+    }
+
+    setSelectedPersonIndicies(indicies: boolean[]) {
+        (this.$refs.personNav as PersonSelectorNavigationComponent).setSelectedIndicies(indicies);
     }
 
     setupSync() {
@@ -98,30 +121,6 @@ export default class FoodNavigationComponent extends Vue {
             this.otherPercentageNavigationComponents[i].setSelectedDayIndicies(dayIndicies);
             this.otherPercentageNavigationComponents[i].setSelectedPersonIndicies(personIndicies);
         }
-    }
-
-    getSelectedDayIndicies(): boolean[] {
-        return (this.$refs.calendarNav as FoodCalendarNavigationComponent).getSelectedIndicies();
-    }
-
-    getSelectedPersonIndicies(): boolean[] {
-        return (this.$refs.personNav as PersonSelectorNavigationComponent).getSelectedIndicies();
-    }
-
-    getSelectedPersons(): string[] {
-        return (this.$refs.personNav as PersonSelectorNavigationComponent).getSelectedPersons();
-    }
-
-    setFoodTypes(types: FoodType[]) {
-        (this.$refs.calendarNav as FoodCalendarNavigationComponent).setFoodTypes(types);
-    }
-
-    setSelectedDayIndicies(indicies: boolean[]) {
-        (this.$refs.calendarNav as FoodCalendarNavigationComponent).setSelectedIndicies(indicies);
-    }
-
-    setSelectedPersonIndicies(indicies: boolean[]) {
-        (this.$refs.personNav as PersonSelectorNavigationComponent).setSelectedIndicies(indicies);
     }
 
     private setupOpenAndClose() {

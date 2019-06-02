@@ -8,14 +8,14 @@
              absolute movable navs harder !!!! -->
         <div class="my-row">
             <div class="col-md-12 col-lg-4">
-                <food-component />
+                <food-component ref="food"/>
             </div>
             <div class="col-md-12 col-lg-4">
-                <music-component />
+                <music-component ref="music"/>
             </div>
             <div class="col-md-12 col-lg-4">
                 
-                <socializing-component />
+                <socializing-component ref="socializing"/>
             </div>
         </div>
 
@@ -30,11 +30,31 @@ import FoodComponent from "./Food.vue";
 import MusicComponent from "./Music.vue";
 import SocializingComponent from "./Socializing.vue";
 import ParserComponent from "../util/Parser.vue";
+import FoodNavigationComponent from "./navigation/FoodNavigation.vue";
+import PercentageNavigationComponent from "./navigation/PercentageNavigation.vue";
+import { Socializing } from "../models/socializing";
 
 @Component({
     components: {FoodComponent, MusicComponent, SocializingComponent, ParserComponent}
 })
 export default class App extends Vue {
+
+    mounted() {
+        this.$nextTick(function() {
+            let navFood = (this.$refs.food as FoodComponent).$refs.nav as FoodNavigationComponent;
+            let navMusic = (this.$refs.music as MusicComponent).$refs.nav as PercentageNavigationComponent;
+            let navSocializing = (this.$refs.socializing as SocializingComponent).$refs.nav as PercentageNavigationComponent;
+
+            navFood.addOtherPercentageNavigationComponent(navMusic);
+            navFood.addOtherPercentageNavigationComponent(navSocializing);
+
+            navMusic.addOtherFoodNavigationComponent(navFood);
+            navMusic.addOtherPercentageNavigationComponent(navSocializing);
+
+            navSocializing.addOtherFoodNavigationComponent(navFood);
+            navSocializing.addOtherPercentageNavigationComponent(navMusic);
+        });
+    }
 
 }
 </script>

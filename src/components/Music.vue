@@ -6,24 +6,25 @@
             Music Component
         </center>
         
-
-        <percentage-calendar-navigation-component ref="nav"/>
+        <percentage-navigation-component ref="nav"/>
     </div>
 </template>
 
 <!-- Typescript content --> 
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
-import PercentageCalendarNavigationComponent from "./navigation/PercentageCalendarNavigation.vue";
+import PercentageNavigationComponent from "./navigation/PercentageNavigation.vue";
 
 @Component({
-    components: {PercentageCalendarNavigationComponent}
+    components: {PercentageNavigationComponent}
 })
 export default class MusicComponent extends Vue {
 
     mounted() {
-        this.$nextTick(function() {        
-            (this.$refs.nav as PercentageCalendarNavigationComponent).setPercentages([0.05, 0.08, 0.12, 0.2, 0.08, 0.6, 0.2, 0.0, 0.3, 1.0, 0.2, 0.05, 0.5, 0.02]);
+        let comp = this;
+        this.$nextTick(function() {
+            //(this.$refs.nav as PercentageNavigationComponent).$emit('setPercentages', [0.05, 0.08, 0.12, 0.2, 0.38, 0.6, 0.9, 1.0, 0.75, 0.4, 0.2, 0.4, 0.1, 0.07]);
+            (this.$refs.nav as PercentageNavigationComponent).setPercentages([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]);
         });
     }
 

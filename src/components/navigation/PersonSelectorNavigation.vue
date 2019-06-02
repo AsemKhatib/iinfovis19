@@ -23,18 +23,41 @@
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 import * as SNAPSVG_TYPE from "snapsvg";
+import { PersonNavigationIndiciesChangedListener } from "./Listeners";
 
 declare var Snap: typeof SNAPSVG_TYPE;
 
 @Component
 export default class PersonSelectorNavigationComponent extends Vue {
     
+    private indiciesChangedListeners: PersonNavigationIndiciesChangedListener[] = [];
+    addCalendarNavigationIndiciesChangedListener(listener: PersonNavigationIndiciesChangedListener) {
+        this.indiciesChangedListeners.push(listener);
+    }
+    private fireIndiciesChangedListeners(indicies: boolean[]) {
+        for ( var i = 0; i < this.indiciesChangedListeners.length; i++ ) {
+            this.indiciesChangedListeners[i].fire(indicies);
+        }
+    }
+    private fireIndiciesChangedListenersPullRecents() {
+        this.fireIndiciesChangedListeners(this.getSelectedIndicies());
+    }
 
     mounted() {
         this.$nextTick(function() {
             this.setupGestures();
             this.updateAllButton();
         });
+    }
+
+    setSelectedIndicies(indicies: boolean[]) {
+        for ( var i = 0; i < indicies.length; i++ ) {
+            if ( indicies[i] ) {
+                this.selectPersonByIndex(i);
+            } else {
+                this.unselectPersonByIndex(i);
+            }
+        }
     }
 
     getSelectedIndicies(): Array<boolean> {
@@ -95,6 +118,7 @@ export default class PersonSelectorNavigationComponent extends Vue {
             persons[i].classList.toggle('person-selected', true);
         }
         this.updateAllButton();
+        this.fireIndiciesChangedListenersPullRecents(); 
     }
 
     unselectAllPersons() {
@@ -103,6 +127,7 @@ export default class PersonSelectorNavigationComponent extends Vue {
             persons[i].classList.toggle('person-selected', false);
         }
         this.updateAllButton();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     isPersonsSelectedByIndex(index: number): boolean {
@@ -114,18 +139,21 @@ export default class PersonSelectorNavigationComponent extends Vue {
         let persons = this.$el.querySelectorAll('.person');
         persons[index].classList.toggle('person-selected');
         this.updateAllButton();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     selectPersonByIndex(index: number) {
         let persons = this.$el.querySelectorAll('.person');
         persons[index].classList.toggle('person-selected', true);
         this.updateAllButton();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     unselectPersonByIndex(index: number) {
         let persons = this.$el.querySelectorAll('.person');
         persons[index].classList.toggle('person-selected', false);
         this.updateAllButton();
+        this.fireIndiciesChangedListenersPullRecents();
     }
     
 
@@ -146,7 +174,6 @@ export default class PersonSelectorNavigationComponent extends Vue {
                 if ( node !== null ) {
                     let personIndex = parseInt(node.dataset.index as string);
                     comp.togglePersonByIndex(personIndex);
-                    console.log("Hello");
                 }
             });
         }
@@ -235,6 +262,6 @@ export default class PersonSelectorNavigationComponent extends Vue {
     }
 
     .person-selected {
-        background-color: rgb(17, 181, 226)!important;
+        background-color: rgb(17, 181, 226, 0.75)!important;
     }
 </style>
