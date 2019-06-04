@@ -21,6 +21,8 @@ import { Socializing } from "../models/socializing";
 export default class Parser extends Vue {
 
     parse() {
+        // import files and save to an array
+        // create download function to download everything
         dataService.getCSV().then(data => {
             const categoriesList: Music[] = [];
             const rows = data.data.split("\r\n")
