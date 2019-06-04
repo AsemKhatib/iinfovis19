@@ -3,7 +3,7 @@
 <template>
     <div>
 
-        <button @click="parse()">parse</button>
+        <button @click="parse">parse</button>
     </div>
 </template>
 
@@ -24,18 +24,6 @@ export default class Parser extends Vue {
     names2: string[] = ['Person4', 'Person5', 'Person6'];
     categories: string[] = ['Food', 'Music', 'Socializing'];
 
-    download(json:any, name:string) {
-        const data = JSON.stringify(json, null, 2);
-        const blob = new Blob([data], {type: 'text/plain'})
-        const e = document.createEvent('MouseEvents'),
-        a = document.createElement('a');
-        a.download = "Data_" + name.split(' - ')[0] + '_' + name.split(' - ')[1] + ".json";
-        a.href = window.URL.createObjectURL(blob);
-        a.dataset.downloadurl = ['text/json', a.download, a.href].join(':');
-        e.initEvent('click', true, false);
-        a.dispatchEvent(e);
-    }
-
     parse() {
         const promises: Promise<any>[] = [];
         // this.names1.forEach(name => {
@@ -45,9 +33,8 @@ export default class Parser extends Vue {
                 dataService.getCSV(fileName).then(csv => {
                     const categoriesList: Category[] = [];
                     const rows = csv.data.split("\r\n")
-                                        .filter((ele:string) => ele !== ",,,,,," && ele !== ",,,,")
+                                        .filter((el:string) => el !== ",,,,,," && el !== ",,,,")
                                         .map((el:any) => el.split(","));
-                    const firstRow = rows[0];
                     rows.shift();
 
                     let category: any = {
@@ -56,40 +43,40 @@ export default class Parser extends Vue {
                     };
                     let groupIndex = -1;
 
-                    rows.forEach((el:any[], i:any) => {
-                        if(el[0] !== "") {
+                    rows.forEach((row:any[], i:any) => {
+                        if(row[0] !== "") {
                             category = {
-                                date: el[0],
+                                date: row[0],
                                 entryGroups: []
                             }
                         } else {
                             const nextRow = rows[i+1];
-                            if(el[1] != "") {
+                            if(row[1] != "") {
                                 category.entryGroups.push({
-                                    daytime: el[1],
+                                    daytime: row[1],
                                     entries: []
                                 })
                                 groupIndex = (groupIndex + 1) % 3;
                             }  else {
                                 if(cat === 'Music') {
                                     category.entryGroups[groupIndex].entries.push({
-                                        duration: el[2],
-                                        activity: el[3],
-                                        contentType: el[4],
-                                        medium: el[5],
-                                        intention: el[6]
+                                        duration: row[2],
+                                        activity: row[3],
+                                        contentType: row[4],
+                                        medium: row[5],
+                                        intention: row[6]
                                     } as MusicEntry);
                                 } else if(cat === 'Food') {
                                     category.entryGroups[groupIndex].entries.push({
-                                        type: el[2],
-                                        size: el[3],
-                                        place: el[4],
+                                        type: row[2],
+                                        size: row[3],
+                                        place: row[4],
                                     } as FoodEntry);
                                 } else if(cat === 'Socializing') {
                                     category.entryGroups[groupIndex].entries.push({
-                                        duration: el[2],
-                                        personAmount: el[3],
-                                        personsType: el[4]
+                                        duration: row[2],
+                                        personAmount: row[3],
+                                        personsType: row[4]
                                     } as SocializingEntry);
                                 }
                             }
@@ -104,6 +91,17 @@ export default class Parser extends Vue {
         })
     }
 
+    download(json:any, name:string) {
+        const data = JSON.stringify(json, null, 2);
+        const blob = new Blob([data], {type: 'text/plain'})
+        const e = document.createEvent('MouseEvents'),
+        a = document.createElement('a');
+        a.download = "Data_" + name.split(' - ')[0] + '_' + name.split(' - ')[1] + ".json";
+        a.href = window.URL.createObjectURL(blob);
+        a.dataset.downloadurl = ['text/json', a.download, a.href].join(':');
+        e.initEvent('click', true, false);
+        a.dispatchEvent(e);
+    }
 }
 </script>
 
