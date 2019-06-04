@@ -1,0 +1,399 @@
+[
+  {
+    "date": "13.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "gym",
+            "contentType": "podcasts",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "14.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "gym",
+            "contentType": "podcasts",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "transportation",
+            "contentType": "podcasts",
+            "medium": "streaming",
+            "intention": "passive"
+          },
+          {
+            "duration": "10-30min",
+            "activity": "transportation",
+            "contentType": "podcasts",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "15.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "transportation",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "transportation",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "16.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "gym",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "activity": "walking",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "17.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "gym",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "transportation",
+            "contentType": "podcasts",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "18.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "family event",
+            "contentType": "music",
+            "medium": "other",
+            "intention": "party"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "19.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "transportation",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "activity": "talking ",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "20.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "other",
+            "intention": "passive"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "21.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "transportation",
+            "contentType": "podcasts",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "22.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "activity": "walking",
+            "contentType": "podcasts",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "<10min",
+            "activity": "walking",
+            "contentType": "podcasts",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "23.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "<10min",
+            "activity": "walking",
+            "contentType": "podcasts",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "transportation",
+            "contentType": "podcasts",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "24.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "eating",
+            "contentType": "music",
+            "medium": "other",
+            "intention": "other"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "25.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "26.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  }
+]

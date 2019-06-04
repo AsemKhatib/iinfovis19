@@ -1,0 +1,499 @@
+[
+  {
+    "date": "13.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "atHome"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "snack",
+            "place": "atHome"
+          },
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "atHome"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "fullMeal",
+            "place": "atHome"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "14.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "atHome"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "15.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          },
+          {
+            "type": "vegetarian",
+            "size": "snack",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "snack",
+            "place": "somewhereElse"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "16.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "atHome"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "type": "vegan",
+            "size": "snack",
+            "place": "canteen"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "atHome"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "17.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "atHome"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "type": "vegan",
+            "size": "fullMeal",
+            "place": "atHome"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "snack",
+            "place": "somewhereElse"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "18.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "snack",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "19.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "snack",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          },
+          {
+            "type": "vegetarian",
+            "size": "snack",
+            "place": "somewhereElse"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "20.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "21.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "atHome"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "fullMeal",
+            "place": "atHome"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "22.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "canteen"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "fullMeal",
+            "place": "atHome"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "23.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "canteen"
+          },
+          {
+            "type": "vegan",
+            "size": "snack",
+            "place": "atHome"
+          },
+          {
+            "type": "vegan",
+            "size": "snack",
+            "place": "atHome"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "atHome"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "24.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "type": "vegan",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "snack",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "25.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "snack",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "26.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "type": "meatEater",
+            "size": "fullMeal",
+            "place": "somewhereElse"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "type": "vegetarian",
+            "size": "fullMeal",
+            "place": "restaurant"
+          }
+        ]
+      }
+    ]
+  }
+]

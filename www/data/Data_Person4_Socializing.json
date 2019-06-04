@@ -1,0 +1,1101 @@
+[
+  {
+    "date": "13.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "<10min",
+            "personAmount": "2",
+            "personsType": "friends"
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "14.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": ">10",
+            "personsType": "friends"
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "15.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "personAmount": "2",
+            "personsType": "friends"
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "16.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "17.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "18.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "personAmount": "3-4",
+            "personsType": "friends"
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "19.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "personAmount": "3-4",
+            "personsType": "friends"
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "20.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "21.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "22.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "23.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "24.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": ">10",
+            "personsType": "mixed"
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "25.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": ">10",
+            "personsType": "mixed"
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": ">10",
+            "personsType": "mixed"
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": ">10",
+            "personsType": "mixed"
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "26.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": ">10",
+            "personsType": "mixed"
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          },
+          {
+            "duration": "",
+            "personAmount": "",
+            "personsType": ""
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  }
+]

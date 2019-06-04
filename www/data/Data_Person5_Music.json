@@ -1,0 +1,478 @@
+[
+  {
+    "date": "13.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "walking",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "relaxing"
+          },
+          {
+            "duration": "10-30min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          },
+          {
+            "duration": ">60min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          },
+          {
+            "duration": "10-30min",
+            "activity": "walking",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "relaxing"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "14.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "radio",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          },
+          {
+            "duration": "10-60min",
+            "activity": "dishwashing",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "relaxing"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "chilling",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "relaxing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "15.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "walking",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "relaxing"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "relaxing"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "16.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "radio",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "17.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "transportation",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "relaxing"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "18.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "19.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          },
+          {
+            "duration": "10-30min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "radio",
+            "intention": "concentration"
+          },
+          {
+            "duration": ">60min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "20.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          },
+          {
+            "duration": ">60min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "21.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          },
+          {
+            "duration": ">60min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "radio",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "22.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "23.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "study",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "work",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          },
+          {
+            "duration": ">60min",
+            "activity": "making a gift",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "24.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "activity": "chilling",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "relaxing"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "eating",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "passive"
+          },
+          {
+            "duration": "10-60min",
+            "activity": "play cards",
+            "contentType": "music",
+            "medium": "vinyl",
+            "intention": "relaxing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "25.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "26.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "preparing election day",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  }
+]

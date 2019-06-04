@@ -1,0 +1,294 @@
+[
+  {
+    "date": "13.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "14.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "friends"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "15.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "personAmount": "1",
+            "personsType": "friends"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "16.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "17.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "18.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "2",
+            "personsType": "friends"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "19.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "30-60min",
+            "personAmount": "1",
+            "personsType": "family"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "20.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "21.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "22.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "friends"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "23.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "24.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "2",
+            "personsType": "mixed"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "25.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "26.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  }
+]

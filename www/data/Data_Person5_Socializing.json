@@ -1,0 +1,426 @@
+[
+  {
+    "date": "13.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "<10min",
+            "personAmount": "1",
+            "personsType": "family"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "14.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "15.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "30-60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "16.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "30-60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "17.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "18.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "19.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "20.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "30-60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "21.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "30-60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "30-60min",
+            "personAmount": "2",
+            "personsType": "mixed"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          },
+          {
+            "duration": ">60min",
+            "personAmount": "3-4",
+            "personsType": "flatmates"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "22.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "4-10",
+            "personsType": "mixed"
+          },
+          {
+            "duration": "30-60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "23.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "<10min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "24.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "family"
+          },
+          {
+            "duration": "30-60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "25.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "1",
+            "personsType": "family"
+          },
+          {
+            "duration": ">60min",
+            "personAmount": "4-10",
+            "personsType": "family"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": ">10",
+            "personsType": "mixed"
+          },
+          {
+            "duration": "10-30min",
+            "personAmount": "1",
+            "personsType": "family"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": ">60min",
+            "personAmount": "4-10",
+            "personsType": "mixed"
+          },
+          {
+            "duration": "30-60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "26.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "30-60min",
+            "personAmount": "1",
+            "personsType": "partner(gf/bf)"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  }
+]

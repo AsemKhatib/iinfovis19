@@ -1,0 +1,391 @@
+[
+  {
+    "date": "13.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "work",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "work",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "14.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "work",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "walking",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "relaxing"
+          },
+          {
+            "duration": ">60min",
+            "activity": "work",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "walking",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "relaxing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "15.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "activity": "walking",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "16.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "work",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "work",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "17.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "walking",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": [
+          {
+            "duration": "10-60min",
+            "activity": "chilling",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "relaxing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "18.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "learning a language",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "19.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "video games",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "passive"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "20.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "work",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "work",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "21.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": "10-30min",
+            "activity": "work",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "22.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "23.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "work",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "work",
+            "contentType": "music",
+            "medium": "streaming",
+            "intention": "concentration"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "24.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": [
+          {
+            "duration": ">60min",
+            "activity": "chilling",
+            "contentType": "podcasts",
+            "medium": "streaming",
+            "intention": "relaxing"
+          }
+        ]
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "25.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  },
+  {
+    "date": "26.05.2019",
+    "entryGroups": [
+      {
+        "daytime": "Morning",
+        "entries": []
+      },
+      {
+        "daytime": "Noon",
+        "entries": []
+      },
+      {
+        "daytime": "Evening",
+        "entries": []
+      }
+    ]
+  }
+]
