@@ -4,36 +4,36 @@
         <table class="calendar-nav noselect">
             <thead>
                 <tr>
-                    <th class="all">all</th>
-                    <th class="day-of-week" data-index="0">Mon</th>
-                    <th class="day-of-week" data-index="1">Tue</th>
-                    <th class="day-of-week" data-index="2">Wed</th>
-                    <th class="day-of-week" data-index="3">Thu</th>
-                    <th class="day-of-week" data-index="4">Fri</th>
-                    <th class="day-of-week" data-index="5">Sat</th>
-                    <th class="day-of-week" data-index="6">Sun</th>
+                    <th class="cell-selected all">all</th>
+                    <th class="cell-selected day-of-week" data-index="0">Mon</th>
+                    <th class="cell-selected day-of-week" data-index="1">Tue</th>
+                    <th class="cell-selected day-of-week" data-index="2">Wed</th>
+                    <th class="cell-selected day-of-week" data-index="3">Thu</th>
+                    <th class="cell-selected day-of-week" data-index="4">Fri</th>
+                    <th class="cell-selected day-of-week" data-index="5">Sat</th>
+                    <th class="cell-selected day-of-week" data-index="6">Sun</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="week" data-index="0">W 1</td>
-                    <td class="single-day" data-index="0"></td>
-                    <td class="single-day" data-index="1"></td>
-                    <td class="single-day" data-index="2"></td>
-                    <td class="single-day" data-index="3"></td>
-                    <td class="single-day" data-index="4"></td>
-                    <td class="single-day" data-index="5"></td>
-                    <td class="single-day" data-index="6"></td>
+                    <td class="cell-selected week" data-index="0">W 1</td>
+                    <td class="cell-selected single-day" data-index="0"></td>
+                    <td class="cell-selected single-day" data-index="1"></td>
+                    <td class="cell-selected single-day" data-index="2"></td>
+                    <td class="cell-selected single-day" data-index="3"></td>
+                    <td class="cell-selected single-day" data-index="4"></td>
+                    <td class="cell-selected single-day" data-index="5"></td>
+                    <td class="cell-selected single-day" data-index="6"></td>
                 </tr>
                 <tr>
-                    <td class="week" data-index="1">W 2</td>
-                    <td class="single-day" data-index="7"></td>
-                    <td class="single-day" data-index="8"></td>
-                    <td class="single-day" data-index="9"></td>
-                    <td class="single-day" data-index="10"></td>
-                    <td class="single-day" data-index="11"></td>
-                    <td class="single-day" data-index="12"></td>
-                    <td class="single-day" data-index="13"></td>
+                    <td class="cell-selected week" data-index="1">W 2</td>
+                    <td class="cell-selected single-day" data-index="7"></td>
+                    <td class="cell-selected single-day" data-index="8"></td>
+                    <td class="cell-selected single-day" data-index="9"></td>
+                    <td class="cell-selected single-day" data-index="10"></td>
+                    <td class="cell-selected single-day" data-index="11"></td>
+                    <td class="cell-selected single-day" data-index="12"></td>
+                    <td class="cell-selected single-day" data-index="13"></td>
                 </tr>
             </tbody>
         </table>
@@ -53,6 +53,7 @@ import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 import * as SNAPSVG_TYPE from "snapsvg";
 import { FoodType } from "../../models/food";
 import * as Vivus from "vivus";
+import { CalendarNavigationIndiciesChangedListener} from "./Listeners";
 
 declare var Snap: typeof SNAPSVG_TYPE;
 
@@ -64,6 +65,22 @@ export default class FoodCalendarNavigationComponent extends Vue {
     milk_img: Element | null = null;
     leaf_img: Element | null = null;
 
+    blockEvents: boolean = false;
+
+    private indiciesChangedListeners: CalendarNavigationIndiciesChangedListener[] = [];
+    addCalendarNavigationIndiciesChangedListener(listener: CalendarNavigationIndiciesChangedListener) {
+        this.indiciesChangedListeners.push(listener);
+    }
+    private fireIndiciesChangedListeners(indicies: boolean[]) {
+        if ( this.blockEvents ) return;
+        for ( var i = 0; i < this.indiciesChangedListeners.length; i++ ) {
+            this.indiciesChangedListeners[i].fireDayIndicies(indicies);
+        }
+    }
+    fireIndiciesChangedListenersPullRecents() {
+        this.fireIndiciesChangedListeners(this.getSelectedIndicies());
+    }
+
     mounted() {
         this.$nextTick(function() {
             this.meat_img = this.$el.querySelector('#meat-img');
@@ -71,8 +88,11 @@ export default class FoodCalendarNavigationComponent extends Vue {
             this.leaf_img = this.$el.querySelector('#leaf-img');
 
             this.updateIcons();
-
             this.setupGestures();
+
+            this.$nextTick(function() {
+                this.fireIndiciesChangedListenersPullRecents();
+            });
         });
     }
 
@@ -97,7 +117,6 @@ export default class FoodCalendarNavigationComponent extends Vue {
         let cells = this.$el.querySelectorAll('.single-day');
         var node = cells[index];
         while ( node.firstChild ) { node.removeChild(node.firstChild); }
-        console.log(type);
 
         if ( type == FoodType.VEGAN ) {
             node.appendChild((this.leaf_img as HTMLOListElement).cloneNode(true));
@@ -107,6 +126,21 @@ export default class FoodCalendarNavigationComponent extends Vue {
             node.appendChild((this.meat_img as HTMLObjectElement).cloneNode(true))
         }
         
+    }
+
+    setSelectedIndicies(indicies: boolean[], blockEvents: boolean = false) {
+        let oldBlock = this.blockEvents;
+        this.blockEvents = blockEvents;
+
+        for ( var i = 0; i < indicies.length; i++ ) {
+            if ( indicies[i] ) {
+                this.selectedDate(i);
+            } else {
+                this.unselectDate(i);
+            }
+        }
+
+        this.blockEvents = oldBlock;
     }
 
     getSelectedIndicies(): Array<boolean> {
@@ -147,6 +181,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
             cells[i].classList.toggle('cell-selected', true);
         }  
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     unselectAll() {
@@ -155,6 +190,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
             cells[i].classList.toggle('cell-selected', false);
         }  
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     getDayOfWeekSelectCount(dayOfWeek: number): number {
@@ -192,6 +228,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         cells[dayOfWeek].classList.toggle('cell-selected', true);
         cells[dayOfWeek+7].classList.toggle('cell-selected', true);
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     unselectDayOfWeek(dayOfWeek: number) {
@@ -199,6 +236,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         cells[dayOfWeek].classList.toggle('cell-selected', false);
         cells[dayOfWeek+7].classList.toggle('cell-selected', false);
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     toggleWeek(week: number) {
@@ -216,6 +254,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
             cells[week*7+i].classList.toggle('cell-selected', true);
         }    
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     unselectWeek(week: number) {
@@ -224,24 +263,28 @@ export default class FoodCalendarNavigationComponent extends Vue {
             cells[week*7+i].classList.toggle('cell-selected', false);
         }    
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     toggleDate(index: number) {
         let cells = this.$el.querySelectorAll('.single-day');
         cells[index].classList.toggle('cell-selected');
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     selectedDate(index: number) {
         let cells = this.$el.querySelectorAll('.single-day');
         cells[index].classList.toggle('cell-selected', true);
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     unselectDate(index: number) {
         let cells = this.$el.querySelectorAll('.single-day');
         cells[index].classList.toggle('cell-selected', false);
         this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
     }
 
     updateHeadersEtcIvNecessary() {
@@ -353,12 +396,13 @@ export default class FoodCalendarNavigationComponent extends Vue {
     .calendar-nav {
         width: 100%;
         border-collapse: separate;
-        border: 0.05rem solid #aaa;
+        border: 0.1rem solid #000;
         border-radius: 0.3rem;
         border-spacing: 0;
         border-bottom-left-radius: 0.3rem;
         border-bottom-right-radius: 0.3rem;
         overflow: hidden;
+        font-size: 0.9rem;
     }
 
     .calendar-nav thead {
@@ -374,8 +418,8 @@ export default class FoodCalendarNavigationComponent extends Vue {
         text-align: center;
         padding-top: 0.75rem;
         padding-bottom: 0.75rem;
-        background-color: rgb(249, 29, 133, 0.0);
-        transition: background-color 0.25s ease-in-out;
+        background-color: rgb(255, 255, 255, 1.0);
+        transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
     }
 
     .calendar-nav th:hover {
@@ -387,7 +431,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
     }
 
     .calendar-nav th {
-        border-right: 0.05rem solid #aaa;
+        border-right: 0.05rem solid #000;
     }
 
     .calendar-nav th:last-of-type {
@@ -398,10 +442,10 @@ export default class FoodCalendarNavigationComponent extends Vue {
         padding: 0;
         margin: 0;
         width: 12.495%;
-        border-top: 0.05rem solid #aaa;
-        border-right: 0.05rem solid #aaa;
-        background-color: rgb(249, 29, 133, 0.0);
-        transition: background-color 0.25s ease-in-out;
+        border-top: 0.05rem solid #000;
+        border-right: 0.05rem solid #000;
+        background-color: rgb(255, 255, 255, 1.0);
+        transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
         text-align: center;
     }
 
@@ -418,6 +462,6 @@ export default class FoodCalendarNavigationComponent extends Vue {
     }
 
     .cell-selected {
-        background-color: rgb(249, 29, 133, 1.0) !important;
+        background-color: rgb(239, 26, 103, 0.75) !important;
     }
 </style>

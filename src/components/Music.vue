@@ -6,25 +6,43 @@
             Music Component
         </center>
         
-
-        <percentage-calendar-navigation-component ref="nav"/>
+        <percentage-navigation-component ref="nav"/>
     </div>
 </template>
 
 <!-- Typescript content --> 
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
-import PercentageCalendarNavigationComponent from "./navigation/PercentageCalendarNavigation.vue";
+import PercentageNavigationComponent from "./navigation/PercentageNavigation.vue";
+
+import { CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener} from "./navigation/Listeners";
 
 @Component({
-    components: {PercentageCalendarNavigationComponent}
+    components: {PercentageNavigationComponent}
 })
-export default class MusicComponent extends Vue {
+export default class MusicComponent extends Vue implements CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener {
+    nav: PercentageNavigationComponent | null = null;
 
     mounted() {
-        this.$nextTick(function() {        
-            (this.$refs.nav as PercentageCalendarNavigationComponent).setPercentages([0.05, 0.08, 0.12, 0.2, 0.08, 0.6, 0.2, 0.0, 0.3, 1.0, 0.2, 0.05, 0.5, 0.02]);
+        let comp = this;
+        this.$nextTick(function() {
+            this.nav = this.$refs.nav as PercentageNavigationComponent;
+
+            this.nav.addCalendarNavigationIndiciesChangedListener(this);
+            this.nav.addPersonNavigationIndiciesChangedListener(this);
+
+            (this.$refs.nav as PercentageNavigationComponent).setPercentages([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]);
         });
+    }
+
+    fireDayIndicies(dayFlagIndicies: boolean[]) {
+        console.log("DaysChanged in MusicComponent");
+        console.log(dayFlagIndicies);
+    }
+
+    firePersonIndicies(personFlagIndicies: boolean[]) {
+        console.log("PersonsChanged in MusicComponent");
+        console.log(personFlagIndicies);
     }
 
 }

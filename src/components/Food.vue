@@ -6,7 +6,7 @@
             Food Component
         </center>
         
-        <food-calendar-navigation-component ref="nav"/>
+        <food-navigation-component ref="nav"/>
         
     </div>
 </template>
@@ -14,12 +14,37 @@
 <!-- Typescript content --> 
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
-import FoodCalendarNavigationComponent from "./navigation/FoodCalendarNavigation.vue";
+import FoodNavigationComponent from "./navigation/FoodNavigation.vue";
+
+import { CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener} from "./navigation/Listeners";
 
 @Component({
-    components: {FoodCalendarNavigationComponent}
+    components: {FoodNavigationComponent}
 })
-export default class FoodComponent extends Vue {
+export default class FoodComponent extends Vue
+                implements CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener{
+    nav: FoodNavigationComponent | null = null;
+
+    mounted() {
+        this.$nextTick(function() {
+            this.nav = this.$refs.nav as FoodNavigationComponent;
+
+            this.nav.addCalendarNavigationIndiciesChangedListener(this);
+            this.nav.addPersonNavigationIndiciesChangedListener(this);
+        });
+    }
+
+    fireDayIndicies(dayFlagIndicies: boolean[]) {
+        console.log("DaysChanged in FoodComponent");
+        console.log(dayFlagIndicies);
+    }
+
+    firePersonIndicies(personFlagIndicies: boolean[]) {
+        console.log("PersonsChanged in FoodComponent");
+        console.log(personFlagIndicies);
+    }
+
+
 
 }
 </script>
