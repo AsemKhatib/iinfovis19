@@ -55,6 +55,7 @@ import * as SNAPSVG_TYPE from "snapsvg";
 import { FoodType } from "../../models/food";
 import * as Vivus from "vivus";
 import { CalendarNavigationIndiciesChangedListener} from "./Listeners";
+import {addClickAndLongClickToElement} from "./../util";
 
 declare var Snap: typeof SNAPSVG_TYPE;
 
@@ -243,6 +244,19 @@ export default class FoodCalendarNavigationComponent extends Vue {
         this.fireIndiciesChangedListenersPullRecents();
     }
 
+    singleSelectDayOfWeek(dayOfWeek: number) {
+        let cells = this.$el.querySelectorAll('.single-day');
+        for ( var i = 0; i < cells.length; i++ ) {
+            if ( i % 7 == dayOfWeek ) {
+                cells[i].classList.toggle('cell-selected', true);
+            } else {
+                cells[i].classList.toggle('cell-selected', false);
+            }
+        }
+        this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
+    }
+
     toggleWeek(week: number) {
         let counter = this.getWeekSelectCount(week);
         if ( counter == 7 ) {
@@ -270,6 +284,19 @@ export default class FoodCalendarNavigationComponent extends Vue {
         this.fireIndiciesChangedListenersPullRecents();
     }
 
+    singleSelectWeek(week: number) {
+        let cells = this.$el.querySelectorAll('.single-day');
+        for ( var i = 0; i < cells.length; i++ ) {
+            if ( Math.floor(i/7) == week ) {
+                cells[i].classList.toggle('cell-selected', true);
+            } else {
+                cells[i].classList.toggle('cell-selected', false);
+            }
+        }    
+        this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
+    }
+
     toggleDate(index: number) {
         let cells = this.$el.querySelectorAll('.single-day');
         cells[index].classList.toggle('cell-selected');
@@ -287,6 +314,19 @@ export default class FoodCalendarNavigationComponent extends Vue {
     unselectDate(index: number) {
         let cells = this.$el.querySelectorAll('.single-day');
         cells[index].classList.toggle('cell-selected', false);
+        this.updateHeadersEtcIvNecessary();
+        this.fireIndiciesChangedListenersPullRecents();
+    }
+
+    singleSelectDate(index: number) {
+        let cells = this.$el.querySelectorAll('.single-day');
+        for ( var i = 0; i < cells.length; i++ ) {
+            if ( i == index ) {
+                cells[i].classList.toggle('cell-selected', true);
+            } else {
+                cells[i].classList.toggle('cell-selected', false);
+            }
+        }
         this.updateHeadersEtcIvNecessary();
         this.fireIndiciesChangedListenersPullRecents();
     }
@@ -333,9 +373,11 @@ export default class FoodCalendarNavigationComponent extends Vue {
         let all = this.$el.querySelector(".all");
 
 
-        // Header days
+               // Header days
         for ( var i = 0; i < days.length; i++ ) {
-            days[i].addEventListener("click", function(event) {
+            let day = days[i] as HTMLElement;
+            addClickAndLongClickToElement(day, 
+            function(event: Event) {
                 if ( event.target !== null ) {
                     let node = event.target as HTMLElement;
                     let dayOfWeek = parseInt(node.dataset.index as string);
@@ -343,12 +385,23 @@ export default class FoodCalendarNavigationComponent extends Vue {
                         comp.toggleDayOfWeek(dayOfWeek);
                     }
                 }
-            });
+            },
+            function(event: Event) {
+                if ( event.target !== null ) {
+                    let node = event.target as HTMLElement;
+                    let dayOfWeek = parseInt(node.dataset.index as string);
+                    if ( dayOfWeek !== null ) {
+                        comp.singleSelectDayOfWeek(dayOfWeek);
+                    }
+                }
+            }, 500 );
         }
 
         // Vertical header weeks
         for ( var i = 0; i < weeks.length; i++ ) {
-            weeks[i].addEventListener("click", function(event) {
+            let week = weeks[i] as HTMLElement;
+            addClickAndLongClickToElement(week,
+            function(event: Event) {
                 if ( event.target !== null ) {
                     let node = event.target as HTMLElement;
                     let week = parseInt(node.dataset.index as string);
@@ -356,12 +409,23 @@ export default class FoodCalendarNavigationComponent extends Vue {
                         comp.toggleWeek(week);
                     }
                 }
-            });
+            },
+            function(event: Event) {
+                if ( event.target !== null ) {
+                    let node = event.target as HTMLElement;
+                    let week = parseInt(node.dataset.index as string);
+                    if ( week !== null ) {                 
+                        comp.singleSelectWeek(week);
+                    }
+                }
+            }, 500);
         }
 
         // Body cells
         for ( var i = 0; i < cells.length; i++ ) {
-            cells[i].addEventListener("click", function(event) {
+            let cell = cells[i] as HTMLElement;
+            addClickAndLongClickToElement(cell,
+            function(event: Event) {
                 if ( event.target !== null ) {
                     let td_cell = (event.target as HTMLElement).closest('.single-day') as HTMLElement;
                     if ( td_cell !== null ) {
@@ -371,7 +435,18 @@ export default class FoodCalendarNavigationComponent extends Vue {
                         }
                     }
                 }
-            });
+            },
+            function(event: Event) {
+                if ( event.target !== null ) {
+                    let td_cell = (event.target as HTMLElement).closest('.single-day') as HTMLElement;
+                    if ( td_cell !== null ) {
+                        let day = parseInt(td_cell.dataset.index as string);
+                        if ( day !== null ) {
+                            comp.singleSelectDate(day);
+                        }
+                    }
+                }
+            }, 500);
         }
 
         // All

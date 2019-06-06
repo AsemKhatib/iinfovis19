@@ -24,6 +24,7 @@
 import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 import * as SNAPSVG_TYPE from "snapsvg";
 import { PersonNavigationIndiciesChangedListener } from "./Listeners";
+import {addClickAndLongClickToElement} from "./../util";
 
 declare var Snap: typeof SNAPSVG_TYPE;
 
@@ -167,6 +168,21 @@ export default class PersonSelectorNavigationComponent extends Vue {
         this.updateAllButton();
         this.fireIndiciesChangedListenersPullRecents();
     }
+
+    singleSelectPersonByIndex(index: number) {
+        let persons = this.$el.querySelectorAll('.person');
+        console.log("Single Select");
+        for ( var i = 0; i < persons.length; i++ ) {
+            console.log(i);
+            if ( i == index ) {
+                persons[i].classList.toggle('person-selected', true);
+            } else {
+                persons[i].classList.toggle('person-selected', false);
+            }
+        }
+        this.updateAllButton();
+        this.fireIndiciesChangedListenersPullRecents();
+    }
     
 
     private setupGestures() {
@@ -181,13 +197,17 @@ export default class PersonSelectorNavigationComponent extends Vue {
         }
 
         for ( var i = 0; i < persons.length; i++ ) {
-            persons[i].addEventListener('click', function(event) {
-                let node = event.target as HTMLObjectElement;
-                if ( node !== null ) {
-                    let personIndex = parseInt(node.dataset.index as string);
-                    comp.togglePersonByIndex(personIndex);
-                }
-            });
+            let person = persons[i];
+            addClickAndLongClickToElement(person as HTMLElement,
+            function(event: Event) {
+                let node = event.target as HTMLElement;
+                let index = parseInt(node.dataset.index as string);
+                comp.togglePersonByIndex(index);
+            }, function(event: Event) {
+                let node = event.target as HTMLElement;
+                let index = parseInt(node.dataset.index as string);
+                comp.singleSelectPersonByIndex(index);
+            }, 500);
         }
     }
 }

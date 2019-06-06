@@ -16,6 +16,7 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 import PercentageNavigationComponent from "./navigation/PercentageNavigation.vue";
 
 import { CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener} from "./navigation/Listeners";
+import {music_get_percentages} from "./../data_helper";
 
 @Component({
     components: {PercentageNavigationComponent}
@@ -43,6 +44,10 @@ export default class MusicComponent extends Vue implements CalendarNavigationInd
     firePersonIndicies(personFlagIndicies: boolean[]) {
         console.log("PersonsChanged in MusicComponent");
         console.log(personFlagIndicies);
+        if ( this.nav !== null ) {
+            console.log(music_get_percentages(personFlagIndicies));
+            this.nav.setPercentages(music_get_percentages(personFlagIndicies));
+        }
     }
 
 }
