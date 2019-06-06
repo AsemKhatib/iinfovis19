@@ -9,7 +9,7 @@ export interface SocializingEntryGroup extends EntryGroup {
 }
 
 export interface SocializingEntry extends Entry {
-    duration: '<1h' | '1h-2h' | '2h-4h';
+    duration: '<10min' | '10-30min' | '30-60min' | '>60min';
     personAmount: '1' | '2' | '3-4' | '4-10' | '>10';
     personsType: 'friends' | 'family' | 'partner' | 'flatmates' | 'colleagues' | 'mixed';
 }

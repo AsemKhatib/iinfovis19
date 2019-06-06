@@ -15,6 +15,7 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 import PercentageNavigationComponent from "./navigation/PercentageNavigation.vue";
 
 import { CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener} from "./navigation/Listeners";
+import {socializing_get_percentages, socializing_get_data_filtered_and_accumulated_values_daywise} from "./../data_helper";
 
 @Component({
     components: {PercentageNavigationComponent}
@@ -33,14 +34,22 @@ export default class SocializingComponent extends Vue implements CalendarNavigat
         });
     }
 
+    updateData() {
+        if ( this.nav !== null ) {
+            let filtered_data = socializing_get_data_filtered_and_accumulated_values_daywise(
+                this.nav.getSelectedPersonIndicies(), this.nav.getSelectedDayIndicies());
+        }        
+    }
+
     fireDayIndicies(dayFlagIndicies: boolean[]) {
-        console.log("DaysChanged in SocializingComponent");
-        console.log(dayFlagIndicies);
+        this.updateData();
     }
 
     firePersonIndicies(personFlagIndicies: boolean[]) {
-        console.log("PersonsChanged in SocializingComponent");
-        console.log(personFlagIndicies);
+        if ( this.nav !== null ) {
+            this.nav.setPercentages(socializing_get_percentages(personFlagIndicies));
+        }
+        this.updateData();
     }
 
 }

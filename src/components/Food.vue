@@ -17,7 +17,7 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 import FoodNavigationComponent from "./navigation/FoodNavigation.vue";
 
 import { CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener} from "./navigation/Listeners";
-import { food_get_daywise_major_food_type } from "./../data_helper"; 
+import { food_get_daywise_major_food_type, food_get_data_filtered_and_accumulated_values_daywise } from "./../data_helper"; 
 
 @Component({
     components: {FoodNavigationComponent}
@@ -35,19 +35,22 @@ export default class FoodComponent extends Vue
         });
     }
 
+    updateData() {
+        if ( this.nav !== null ) {
+            let filtered_data = food_get_data_filtered_and_accumulated_values_daywise(
+                this.nav.getSelectedPersonIndicies(), this.nav.getSelectedDayIndicies());
+        }        
+    }
+
     fireDayIndicies(dayFlagIndicies: boolean[]) {
-        console.log("DaysChanged in FoodComponent");
-        console.log(dayFlagIndicies);
+        this.updateData();
     }
 
     firePersonIndicies(personFlagIndicies: boolean[]) {
-        console.log("PersonsChanged in FoodComponent");
-        console.log(personFlagIndicies);
-
         if ( this.nav !== null ) {
             this.nav.setFoodTypes(food_get_daywise_major_food_type(personFlagIndicies));
         }
-    
+        this.updateData();
     }
 
 

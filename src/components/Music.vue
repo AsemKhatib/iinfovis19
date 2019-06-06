@@ -16,7 +16,7 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 import PercentageNavigationComponent from "./navigation/PercentageNavigation.vue";
 
 import { CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener} from "./navigation/Listeners";
-import {music_get_percentages} from "./../data_helper";
+import {music_get_percentages, music_get_data_filtered_and_accumulated_values_daywise} from "./../data_helper";
 
 @Component({
     components: {PercentageNavigationComponent}
@@ -36,18 +36,22 @@ export default class MusicComponent extends Vue implements CalendarNavigationInd
         });
     }
 
+    updateData() {
+        if ( this.nav !== null ) {
+            let filtered_data = music_get_data_filtered_and_accumulated_values_daywise(
+                this.nav.getSelectedPersonIndicies(), this.nav.getSelectedDayIndicies());
+        }        
+    }
+
     fireDayIndicies(dayFlagIndicies: boolean[]) {
-        console.log("DaysChanged in MusicComponent");
-        console.log(dayFlagIndicies);
+        this.updateData();
     }
 
     firePersonIndicies(personFlagIndicies: boolean[]) {
-        console.log("PersonsChanged in MusicComponent");
-        console.log(personFlagIndicies);
         if ( this.nav !== null ) {
-            console.log(music_get_percentages(personFlagIndicies));
             this.nav.setPercentages(music_get_percentages(personFlagIndicies));
         }
+        this.updateData();
     }
 
 }

@@ -1,6 +1,6 @@
 import { Food, FoodEntryGroup, FoodType } from "./models/food";
 import { Music, MusicEntryGroup } from "./models/music";
-import { Socializing } from "./models/socializing";
+import { Socializing, SocializingEntryGroup } from "./models/socializing";
 
 export var food_json = [
     require("./../www/data/Data_Person1_Food.json"),
@@ -194,16 +194,16 @@ export function test_food() {
 
 export function music_get_data_filtered_and_accumulated(personIndicies: boolean[], dayIndicies: boolean[]) {
     let data = music_get_data();
-    let filtered_by_music: Array<Array<Music>> = [];
+    let filtered_by_person: Array<Array<Music>> = [];
     
     for ( var i = 0; i < data.length; i++ ) {
         if ( personIndicies[i] ) {
-            filtered_by_music.push(data[i]);
+            filtered_by_person.push(data[i]);
         }
     }
 
-    if ( filtered_by_music.length > 0 ) {
-        let firs_set = filtered_by_music[0];
+    if ( filtered_by_person.length > 0 ) {
+        let firs_set = filtered_by_person[0];
 
         let new_data: Array<Music> = [];
         for ( var day = 0; day < firs_set.length; day++ ) {
@@ -212,8 +212,8 @@ export function music_get_data_filtered_and_accumulated(personIndicies: boolean[
             for ( var entryGroup = 0; entryGroup < firs_set[day].entryGroups.length; entryGroup++ ) {
                 let day_entry_group = {daytime: firs_set[day].entryGroups[entryGroup].daytime, entries: []} as MusicEntryGroup;
 
-                for ( var sets = 0; sets < filtered_by_music.length; sets++ ) {
-                    let set_entry_group = filtered_by_music[sets][day].entryGroups[entryGroup];
+                for ( var sets = 0; sets < filtered_by_person.length; sets++ ) {
+                    let set_entry_group = filtered_by_person[sets][day].entryGroups[entryGroup];
                     for ( var set_entry = 0; set_entry < set_entry_group.entries.length; set_entry++ ) {
                         day_entry_group.entries.push(set_entry_group.entries[set_entry]);
                     }
@@ -341,4 +341,158 @@ export function test_music() {
     let test_days: boolean[] = [false, false, false, false, false, false, false, false, false, false, false, false, false, false];
 
     
+}
+
+
+
+
+
+
+
+
+
+
+
+export function socializing_get_data_filtered_and_accumulated(personIndicies: boolean[], dayIndicies: boolean[]) {
+    let data = socializing_get_data();
+    let filtered_by_person: Array<Array<Socializing>> = [];
+    
+    for ( var i = 0; i < data.length; i++ ) {
+        if ( personIndicies[i] ) {
+            filtered_by_person.push(data[i]);
+        }
+    }
+
+    if ( filtered_by_person.length > 0 ) {
+        let firs_set = filtered_by_person[0];
+
+        let new_data: Array<Socializing> = [];
+        for ( var day = 0; day < firs_set.length; day++ ) {
+            let day_soc = { date: firs_set[day].date, entryGroups: []} as Socializing;
+            
+            for ( var entryGroup = 0; entryGroup < firs_set[day].entryGroups.length; entryGroup++ ) {
+                let day_entry_group = {daytime: firs_set[day].entryGroups[entryGroup].daytime, entries: []} as SocializingEntryGroup;
+
+                for ( var sets = 0; sets < filtered_by_person.length; sets++ ) {
+                    let set_entry_group = filtered_by_person[sets][day].entryGroups[entryGroup];
+                    for ( var set_entry = 0; set_entry < set_entry_group.entries.length; set_entry++ ) {
+                        day_entry_group.entries.push(set_entry_group.entries[set_entry]);
+                    }
+                }
+
+                day_soc.entryGroups.push(day_entry_group);
+            }
+
+            new_data.push(day_soc);
+        }
+
+        return new_data;
+    } else {
+        return [];
+    }
+}
+
+export function socializing_get_data_filtered_and_accumulated_values_daywise(personIndicies: boolean[], dayIndicies: boolean[]): Record<string, Record<string, number>>[] {
+    let filtered_data = socializing_get_data_filtered_and_accumulated(personIndicies, dayIndicies);
+
+    if ( filtered_data !== undefined ) {
+        let flattened_data: Record<string, Record<string, number>>[] = [];
+
+        for ( var day = 0; day < filtered_data.length; day++ ) {
+            let day_record = {
+                "duration" : {
+                    "<10min" : 0,
+                    "10-30min": 0,
+                    "30-60min" : 0,
+                    ">60min" : 0
+                },
+                "personAmount": {
+                    "1" : 0,
+                    "2" : 0,
+                    "3-4" : 0,
+                    "4-10" : 0,
+                    ">10" : 0
+                },
+                "personsType": {
+                    "friends" : 0,
+                    "family" : 0,
+                    "partner" : 0,
+                    "flatmates" : 0,
+                    "colleagues" : 0,
+                    "mixed" : 0
+                }
+            } as Record<string, Record<string, number>>;
+
+            filtered_data[day].entryGroups.forEach(entryGroup => {
+                entryGroup.entries.forEach(entry => {
+                    let dur = entry.duration.toString();
+                    if ( dur === "10-60min" ) {
+                        day_record["duration"]["30-60min"]++;
+                    } else {
+                        day_record["duration"][entry.duration]++;
+                    }
+
+                    day_record["personAmount"][entry.personAmount]++;
+                    day_record["personsType"][entry.personsType]++;
+                });
+            });
+
+            flattened_data.push(day_record);
+        }
+
+        return flattened_data;
+    } else {
+        return [];
+    }
+}
+
+function personAmountToScore(amount: string) {
+    if ( amount === "1" ) return 1;
+    else if ( amount === "2" ) return 2;
+    else if ( amount === "3-4" ) return 3;
+    else if ( amount === "4-10" ) return 6;
+    else if ( amount === ">10" ) return 12;
+    else return 0;
+}
+
+export function socializing_get_percentages(personIndicies: boolean[]): number[] {
+    let data = socializing_get_data_filtered_and_accumulated_values_daywise(personIndicies, days_all);
+    let scores: number[] = [];
+    let percentages: number[] = [];
+    let max = 0;
+    if ( data.length == 0 ) {
+        return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    }
+
+    for ( var day = 0; day < data.length; day++ ) {
+        let sum = 0;
+        sum += duration_to_value("<10min")*data[day]["duration"]["<10min"];
+        sum += duration_to_value("10-30min")*data[day]["duration"]["10-30min"];
+        sum += duration_to_value("30-60min")*data[day]["duration"]["30-60min"];
+        sum += duration_to_value(">60min")*data[day]["duration"][">60min"];
+        
+        sum += 0.5 * personAmountToScore("1")*data[day]["personAmount"]["1"];
+        sum += 0.5 * personAmountToScore("2")*data[day]["personAmount"]["2"];
+        sum += 0.5 * personAmountToScore("3-4")*data[day]["personAmount"]["3-4"];
+        sum += 0.5 * personAmountToScore("4-10")*data[day]["personAmount"]["4-10"];
+        sum += 0.5 * personAmountToScore(">10")*data[day]["personAmount"][">10"];
+
+        if ( sum > max ) max = sum;
+        scores.push(sum);
+    }
+
+    max+=1;
+    for ( var i = 0; i < scores.length; i++ ) {
+        percentages.push(scores[i]/max);
+    }
+
+    return percentages;
+}
+
+export function test_soc() {
+    let test_person: boolean[] = [true, true, true, false, false, false];
+    let test_days: boolean[] = [false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+
+    //console.log(socializing_get_data_filtered_and_accumulated(test_person, test_days));
+    //console.log(socializing_get_data_filtered_and_accumulated_values_daywise(test_person, test_days));
 }
