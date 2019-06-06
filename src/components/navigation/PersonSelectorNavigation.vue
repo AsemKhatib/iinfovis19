@@ -5,12 +5,12 @@
             <thead>
                 <tr>
                     <th class="all person-selected">all</th>
-                    <th data-index="0" class="person person-selected">Ahmad</th>
-                    <th data-index="1" class="person person-selected">Anna-Lena</th>
-                    <th data-index="2" class="person person-selected">Asem</th>
-                    <th data-index="3" class="person person-selected">Lars</th>
-                    <th data-index="4" class="person person-selected">Peter</th>
-                    <th data-index="5" class="person person-selected">Xenia</th>                    
+                    <th data-index="0" class="person person-selected">P 1</th>
+                    <th data-index="1" class="person person-selected">P 2</th>
+                    <th data-index="2" class="person person-selected">P 3</th>
+                    <th data-index="3" class="person person-selected">P 4</th>
+                    <th data-index="4" class="person person-selected">P 5</th>
+                    <th data-index="5" class="person person-selected">P 6</th>                    
                 </tr>
             </thead>
             <tbody>
@@ -50,6 +50,10 @@ export default class PersonSelectorNavigationComponent extends Vue {
         this.$nextTick(function() {
             this.setupGestures();
             this.updateAllButton();
+
+            this.$nextTick(function() {
+                this.fireIndiciesChangedListenersPullRecents();
+            });
         });
     }
 

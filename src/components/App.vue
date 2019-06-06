@@ -31,6 +31,8 @@ import ParserComponent from "../util/Parser.vue";
 import FoodNavigationComponent from "./navigation/FoodNavigation.vue";
 import PercentageNavigationComponent from "./navigation/PercentageNavigation.vue";
 import { Socializing } from "../models/socializing";
+import {read_all_data, test_food} from "./../data_helper";
+
 
 @Component({
     components: {FoodComponent, MusicComponent, SocializingComponent, ParserComponent}
@@ -39,6 +41,14 @@ export default class App extends Vue {
 
     mounted() {
         this.$nextTick(function() {
+
+            // SUPER IMPORTANT !!!!
+            read_all_data();
+            // NEVER REMOVE !!!!
+
+            test_food();
+
+
             let navFood = (this.$refs.food as FoodComponent).$refs.nav as FoodNavigationComponent;
             let navMusic = (this.$refs.music as MusicComponent).$refs.nav as PercentageNavigationComponent;
             let navSocializing = (this.$refs.socializing as SocializingComponent).$refs.nav as PercentageNavigationComponent;

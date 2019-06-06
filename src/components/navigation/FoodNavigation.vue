@@ -73,6 +73,8 @@ export default class FoodNavigationComponent extends Vue {
             this.setupOpenAndClose();
             this.setupDrag();
             this.setupSync();
+
+            this.fireIndiciesChangedListenersPullRecents();
         });
     }
 

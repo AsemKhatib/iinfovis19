@@ -17,6 +17,7 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 import FoodNavigationComponent from "./navigation/FoodNavigation.vue";
 
 import { CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener} from "./navigation/Listeners";
+import { food_get_daywise_major_food_type } from "./../data_helper"; 
 
 @Component({
     components: {FoodNavigationComponent}
@@ -42,6 +43,11 @@ export default class FoodComponent extends Vue
     firePersonIndicies(personFlagIndicies: boolean[]) {
         console.log("PersonsChanged in FoodComponent");
         console.log(personFlagIndicies);
+
+        if ( this.nav !== null ) {
+            this.nav.setFoodTypes(food_get_daywise_major_food_type(personFlagIndicies));
+        }
+    
     }
 
 

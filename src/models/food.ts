@@ -17,5 +17,6 @@ export interface FoodEntry extends Entry {
 export enum FoodType {
     MEAT = "MEAT",
     VEGETARIAN = "VEGETARIAN",
-    VEGAN = "VEGAN"
+    VEGAN = "VEGAN",
+    UNKNOWN = "UNKNOWN"
 }

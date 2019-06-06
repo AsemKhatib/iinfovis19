@@ -42,6 +42,7 @@
             <img id="meat-img" width="100%" src="images/meat.png"/>
             <img id="milk-img" width="100%" src="images/milk.png"/>
             <img id="leaf-img" width="100%" src="images/leaf.png"/>
+            <img id="nodata-img" width="100%" src="images/nodata.png"/>
         </div>
 
     </div>
@@ -64,6 +65,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
     meat_img: Element | null = null;
     milk_img: Element | null = null;
     leaf_img: Element | null = null;
+    nodata_img: Element | null = null;
 
     blockEvents: boolean = false;
 
@@ -86,6 +88,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
             this.meat_img = this.$el.querySelector('#meat-img');
             this.milk_img = this.$el.querySelector('#milk-img');
             this.leaf_img = this.$el.querySelector('#leaf-img');
+            this.nodata_img = this.$el.querySelector('#nodata-img');
 
             this.updateIcons();
             this.setupGestures();
@@ -123,9 +126,10 @@ export default class FoodCalendarNavigationComponent extends Vue {
         } else if ( type == FoodType.VEGETARIAN ) {
             node.appendChild((this.milk_img as HTMLObjectElement).cloneNode(true));
         } else if ( type == FoodType.MEAT ) {
-            node.appendChild((this.meat_img as HTMLObjectElement).cloneNode(true))
+            node.appendChild((this.meat_img as HTMLObjectElement).cloneNode(true));
+        } else {
+            node.appendChild((this.nodata_img as HTMLObjectElement).cloneNode(true));
         }
-        
     }
 
     setSelectedIndicies(indicies: boolean[], blockEvents: boolean = false) {
