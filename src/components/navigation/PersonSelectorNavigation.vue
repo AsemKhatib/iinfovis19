@@ -47,6 +47,20 @@ export default class PersonSelectorNavigationComponent extends Vue {
         this.fireIndiciesChangedListeners(this.getSelectedIndicies());
     }
 
+    private local_indiciesChangedListeners: PersonNavigationIndiciesChangedListener[] = [];
+    addLocalPersonNavigationIndiciesChangedListener(listener: PersonNavigationIndiciesChangedListener) {
+        this.local_indiciesChangedListeners.push(listener);
+    }
+    private fireLocalIndiciesChangedListeners(indicies: boolean[]) {
+        if ( this.blockEvents ) return;
+        for ( var i = 0; i < this.local_indiciesChangedListeners.length; i++ ) {
+            this.local_indiciesChangedListeners[i].firePersonIndicies(indicies);
+        }
+    }
+    fireLocalIndiciesChangedListenersPullRecents() {
+        this.fireLocalIndiciesChangedListeners(this.getSelectedIndicies());
+    }
+
     mounted() {
         this.$nextTick(function() {
             this.setupGestures();
@@ -132,6 +146,7 @@ export default class PersonSelectorNavigationComponent extends Vue {
         }
         this.updateAllButton();
         this.fireIndiciesChangedListenersPullRecents(); 
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     unselectAllPersons() {
@@ -141,6 +156,7 @@ export default class PersonSelectorNavigationComponent extends Vue {
         }
         this.updateAllButton();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     isPersonsSelectedByIndex(index: number): boolean {
@@ -153,6 +169,7 @@ export default class PersonSelectorNavigationComponent extends Vue {
         persons[index].classList.toggle('person-selected');
         this.updateAllButton();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     selectPersonByIndex(index: number) {
@@ -160,6 +177,7 @@ export default class PersonSelectorNavigationComponent extends Vue {
         persons[index].classList.toggle('person-selected', true);
         this.updateAllButton();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     unselectPersonByIndex(index: number) {
@@ -167,6 +185,7 @@ export default class PersonSelectorNavigationComponent extends Vue {
         persons[index].classList.toggle('person-selected', false);
         this.updateAllButton();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     singleSelectPersonByIndex(index: number) {
@@ -180,6 +199,7 @@ export default class PersonSelectorNavigationComponent extends Vue {
         }
         this.updateAllButton();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
     
 

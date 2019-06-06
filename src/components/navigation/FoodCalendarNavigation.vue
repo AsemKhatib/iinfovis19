@@ -84,6 +84,20 @@ export default class FoodCalendarNavigationComponent extends Vue {
         this.fireIndiciesChangedListeners(this.getSelectedIndicies());
     }
 
+    private local_indiciesChangedListeners: CalendarNavigationIndiciesChangedListener[] = [];
+    addLocalPersonNavigationIndiciesChangedListener(listener: CalendarNavigationIndiciesChangedListener) {
+        this.local_indiciesChangedListeners.push(listener);
+    }
+    private fireLocalIndiciesChangedListeners(indicies: boolean[]) {
+        if ( this.blockEvents ) return;
+        for ( var i = 0; i < this.local_indiciesChangedListeners.length; i++ ) {
+            this.local_indiciesChangedListeners[i].fireDayIndicies(indicies);
+        }
+    }
+    fireLocalIndiciesChangedListenersPullRecents() {
+        this.fireLocalIndiciesChangedListeners(this.getSelectedIndicies());
+    }
+
     mounted() {
         this.$nextTick(function() {
             this.meat_img = this.$el.querySelector('#meat-img');
@@ -187,6 +201,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         }  
         this.updateHeadersEtcIvNecessary();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     unselectAll() {
@@ -196,6 +211,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         }  
         this.updateHeadersEtcIvNecessary();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     getDayOfWeekSelectCount(dayOfWeek: number): number {
@@ -234,6 +250,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         cells[dayOfWeek+7].classList.toggle('cell-selected', true);
         this.updateHeadersEtcIvNecessary();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     unselectDayOfWeek(dayOfWeek: number) {
@@ -242,6 +259,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         cells[dayOfWeek+7].classList.toggle('cell-selected', false);
         this.updateHeadersEtcIvNecessary();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     singleSelectDayOfWeek(dayOfWeek: number) {
@@ -255,6 +273,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         }
         this.updateHeadersEtcIvNecessary();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     toggleWeek(week: number) {
@@ -273,6 +292,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         }    
         this.updateHeadersEtcIvNecessary();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     unselectWeek(week: number) {
@@ -282,6 +302,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         }    
         this.updateHeadersEtcIvNecessary();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     singleSelectWeek(week: number) {
@@ -295,6 +316,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         }    
         this.updateHeadersEtcIvNecessary();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     toggleDate(index: number) {
@@ -302,6 +324,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         cells[index].classList.toggle('cell-selected');
         this.updateHeadersEtcIvNecessary();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     selectedDate(index: number) {
@@ -309,6 +332,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         cells[index].classList.toggle('cell-selected', true);
         this.updateHeadersEtcIvNecessary();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     unselectDate(index: number) {
@@ -316,6 +340,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         cells[index].classList.toggle('cell-selected', false);
         this.updateHeadersEtcIvNecessary();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     singleSelectDate(index: number) {
@@ -329,6 +354,7 @@ export default class FoodCalendarNavigationComponent extends Vue {
         }
         this.updateHeadersEtcIvNecessary();
         this.fireIndiciesChangedListenersPullRecents();
+        this.fireLocalIndiciesChangedListenersPullRecents();
     }
 
     updateHeadersEtcIvNecessary() {

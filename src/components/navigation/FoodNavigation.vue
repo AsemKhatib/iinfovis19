@@ -12,7 +12,7 @@
                         <food-calendar-navigation-component ref="calendarNav"/>
                         <center>
                             <div style="display: block; height: 2.5rem;">
-                                <svg height="100%" viewBox="0 0 100 100" class="nav-sync">
+                                <svg height="100%" viewBox="0 0 100 100" class="nav-sync auto-sync">
                                     <g>
                                         <circle cx="50" cy="50" r="45" fill="#FDFDFD" stroke-width="4" stroke="#000" />
                                         <text x="20" y="55" style="font-size: 25px;">sync</text>
@@ -51,13 +51,39 @@ import PersonSelectorNavigationComponent from "./PersonSelectorNavigation.vue";
 import { FoodType } from "../../models/food";
 import PercentageNavigationComponent from "./PercentageNavigation.vue";
 import { CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener} from "./Listeners";
+import {addClickAndLongClickToElement} from "./../util";
 
 const longclick_delay = 600;
 
 @Component({
     components: {FoodCalendarNavigationComponent, PersonSelectorNavigationComponent}
 })
-export default class FoodNavigationComponent extends Vue {
+export default class FoodNavigationComponent extends Vue implements CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener {
+
+    auto_sync = true;
+    fireDayIndicies(i: boolean[]) {
+        if ( this.auto_sync ) {
+            this.sync();
+        }
+    }
+    firePersonIndicies(i: boolean[]) {
+        if ( this.auto_sync ) {
+            this.sync();
+        }
+    }
+    toggleAutoSync() {
+        let sync = this.$el.querySelector('.nav-sync') as HTMLElement;
+        if ( sync !== null ) {
+            if ( sync.classList.contains('auto-sync') ) {
+                sync.classList.toggle('auto-sync', false);
+                this.auto_sync = false;
+            } else {
+                sync.classList.toggle('auto-sync', true);
+                this.auto_sync = true;
+                this.sync();
+            }
+        }
+    }
 
     private otherFoodNavigationComponents: Array<FoodNavigationComponent> = [];
     private otherPercentageNavigationComponents: Array<PercentageNavigationComponent> = [];
@@ -74,7 +100,12 @@ export default class FoodNavigationComponent extends Vue {
             this.setupDrag();
             this.setupSync();
 
-            this.fireIndiciesChangedListenersPullRecents();
+            this.$nextTick(function() {
+                this.$nextTick(function() {
+                    (this.$refs.calendarNav as FoodCalendarNavigationComponent).addLocalPersonNavigationIndiciesChangedListener(this);
+                    (this.$refs.personNav as PersonSelectorNavigationComponent).addLocalPersonNavigationIndiciesChangedListener(this);
+                });
+            });
         });
     }
 
@@ -90,9 +121,13 @@ export default class FoodNavigationComponent extends Vue {
         let sync = this.$el.querySelector('.nav-sync') as HTMLElement;
         let comp = this;
         if ( sync !== null ) {
-            sync.addEventListener('click', function() {
-                comp.sync();
-            });
+            addClickAndLongClickToElement(sync, function() {
+                if ( !comp.auto_sync ) {
+                    comp.sync();
+                }
+            }, function() {
+                comp.toggleAutoSync();
+            }, 500);
         }
     }
 
