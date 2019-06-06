@@ -481,7 +481,7 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         text-align: center;
         padding-top: 0.75rem;
         padding-bottom: 0.75rem;
-        background-color: rgb(255, 255, 255, 1.0);
+        background-color: rgb(255, 255, 255, 0.75);
         transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
     }
 
@@ -507,7 +507,7 @@ export default class PercentageCalendarNavigationComponent extends Vue {
         width: 12.495%;
         border-top: 0.05rem solid #000;
         border-right: 0.05rem solid #000;
-        background-color: rgb(255, 255, 255, 1.0);
+        background-color: rgb(255, 255, 255, 0.75);
         transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
         text-align: center;
     }
