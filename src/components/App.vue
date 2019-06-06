@@ -46,8 +46,6 @@ export default class App extends Vue {
             read_all_data();
             // NEVER REMOVE !!!!
 
-            test_soc();
-
 
             let navFood = (this.$refs.food as FoodComponent).$refs.nav as FoodNavigationComponent;
             let navMusic = (this.$refs.music as MusicComponent).$refs.nav as PercentageNavigationComponent;

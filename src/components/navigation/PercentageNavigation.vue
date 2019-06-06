@@ -311,7 +311,7 @@ export default class PercentageNavigationComponent extends Vue {
         left: 0;
 
         width: 100%;
-        max-width: 40rem;
+        max-width: 35rem;
         opacity: 1.0;
     }
 

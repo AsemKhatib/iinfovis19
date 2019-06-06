@@ -1,9 +1,17 @@
 <!-- HTML Content -->
 <template>
     <div>
-        <center>
-            Socializing Component
-        </center>
+        <div class="chart-container">
+            <div class="third-row">
+                <bubble-chart ref="socDurationChart"/>
+            </div>
+            <div class="third-row">
+                <bubble-chart ref="socTypeChart"/>
+            </div>
+            <div class="third-row">
+                <bubble-chart ref="socAmountChart"/>
+            </div>
+        </div>
         
         <percentage-navigation-component ref="nav"/>
     </div>
@@ -13,31 +21,49 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
 import PercentageNavigationComponent from "./navigation/PercentageNavigation.vue";
+import BubbleChart from "./vis/BubbleChart.vue";
 
 import { CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener} from "./navigation/Listeners";
-import {socializing_get_percentages, socializing_get_data_filtered_and_accumulated_values_daywise} from "./../data_helper";
+import {socializing_get_percentages, socializing_get_data_filtered_and_accumulated_values_daywise, remove_empty_values, compressed_records_to_bubble_chart_data, compress_records} from "./../data_helper";
 
 @Component({
-    components: {PercentageNavigationComponent}
+    components: {PercentageNavigationComponent, BubbleChart}
 })
 export default class SocializingComponent extends Vue implements CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener {
     nav: PercentageNavigationComponent | null = null;
 
+    chart_duration: BubbleChart | null = null;
+    chart_type: BubbleChart | null = null;
+    chart_amount: BubbleChart | null = null;
+
     mounted() {
         this.$nextTick(function() {  
             this.nav = this.$refs.nav as PercentageNavigationComponent;
+            this.chart_duration = this.$refs.socDurationChart as BubbleChart;
+            this.chart_type = this.$refs.socTypeChart as BubbleChart;
+            this.chart_amount = this.$refs.socAmountChart as BubbleChart;
 
             this.nav.addCalendarNavigationIndiciesChangedListener(this);
             this.nav.addPersonNavigationIndiciesChangedListener(this);
-                 
-            (this.$refs.nav as PercentageNavigationComponent).setPercentages([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]); 
         });
     }
 
     updateData() {
-        if ( this.nav !== null ) {
+        if ( this.nav !== null && this.chart_type !== null &&
+             this.chart_duration !== null && this.chart_amount !== null ) {
+
             let filtered_data = socializing_get_data_filtered_and_accumulated_values_daywise(
-                this.nav.getSelectedPersonIndicies(), this.nav.getSelectedDayIndicies());
+                this.nav.getSelectedPersonIndicies(),
+                this.nav.getSelectedDayIndicies()
+            );
+
+            let data = remove_empty_values(compressed_records_to_bubble_chart_data(compress_records(filtered_data)));
+            
+            console.log(data);
+
+            this.chart_duration.setData(data["duration"]);
+            this.chart_type.setData(data["personsType"]);
+            this.chart_amount.setData(data["personAmount"]);
         }        
     }
 
@@ -57,5 +83,16 @@ export default class SocializingComponent extends Vue implements CalendarNavigat
 
 <!-- (S)CSS content -->
 <style>
+.third-row {
+    width: 100%;
+    height: 33%;
+    box-sizing: border-box;
+    padding: 1rem;
+}
 
+.chart-container {
+    display: block;
+    width: 100%;
+    height: 100vh;
+}
 </style>

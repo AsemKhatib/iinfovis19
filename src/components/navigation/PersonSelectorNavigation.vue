@@ -171,9 +171,7 @@ export default class PersonSelectorNavigationComponent extends Vue {
 
     singleSelectPersonByIndex(index: number) {
         let persons = this.$el.querySelectorAll('.person');
-        console.log("Single Select");
         for ( var i = 0; i < persons.length; i++ ) {
-            console.log(i);
             if ( i == index ) {
                 persons[i].classList.toggle('person-selected', true);
             } else {

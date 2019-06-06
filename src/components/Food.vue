@@ -1,11 +1,18 @@
 <!-- HTML Content -->
 <template>
     <div>
-        <!-- Example content -->
-        <center>
-            Food Component
-        </center>
-        
+        <div class="chart-container">
+            <div class="third-row">
+                <bubble-chart ref="foodTypeChart"/>
+            </div>
+            <div class="third-row">
+                <bubble-chart ref="foodSizeChart"/>
+            </div>
+            <div class="third-row">
+                <bubble-chart ref="foodPlaceChart"/>
+            </div>
+        </div>
+
         <food-navigation-component ref="nav"/>
         
     </div>
@@ -15,20 +22,27 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
 import FoodNavigationComponent from "./navigation/FoodNavigation.vue";
+import BubbleChart from "./vis/BubbleChart.vue";
 
 import { CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener} from "./navigation/Listeners";
-import { food_get_daywise_major_food_type, food_get_data_filtered_and_accumulated_values_daywise } from "./../data_helper"; 
+import { compressed_records_to_bubble_chart_data, food_get_daywise_major_food_type, food_get_data_filtered_and_accumulated_values_daywise, compress_records, remove_empty_values } from "./../data_helper"; 
 
 @Component({
-    components: {FoodNavigationComponent}
+    components: {FoodNavigationComponent, BubbleChart}
 })
 export default class FoodComponent extends Vue
                 implements CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener{
     nav: FoodNavigationComponent | null = null;
+    chart_type: BubbleChart | null = null;
+    chart_size: BubbleChart | null = null;
+    chart_place: BubbleChart | null = null;
 
     mounted() {
         this.$nextTick(function() {
             this.nav = this.$refs.nav as FoodNavigationComponent;
+            this.chart_type = this.$refs.foodTypeChart as BubbleChart;
+            this.chart_size = this.$refs.foodSizeChart as BubbleChart;
+            this.chart_place = this.$refs.foodPlaceChart as BubbleChart;
 
             this.nav.addCalendarNavigationIndiciesChangedListener(this);
             this.nav.addPersonNavigationIndiciesChangedListener(this);
@@ -36,9 +50,19 @@ export default class FoodComponent extends Vue
     }
 
     updateData() {
-        if ( this.nav !== null ) {
+        if ( this.nav !== null && this.chart_type !== null &&
+             this.chart_size !== null && this.chart_place !== null ) {
+
             let filtered_data = food_get_data_filtered_and_accumulated_values_daywise(
-                this.nav.getSelectedPersonIndicies(), this.nav.getSelectedDayIndicies());
+                this.nav.getSelectedPersonIndicies(),
+                this.nav.getSelectedDayIndicies()
+            );
+
+            let data = remove_empty_values(compressed_records_to_bubble_chart_data(compress_records(filtered_data)));
+            
+            this.chart_type.setData(data["type"]);
+            this.chart_size.setData(data["size"]);
+            this.chart_place.setData(data["place"]);
         }        
     }
 
@@ -62,5 +86,18 @@ export default class FoodComponent extends Vue
 <style>
 .greeting {
     font-size: 20px;
+}
+
+.third-row {
+    width: 100%;
+    height: 33%;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+.chart-container {
+    display: block;
+    width: 100%;
+    height: 100vh;
 }
 </style>

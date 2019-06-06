@@ -1,6 +1,7 @@
 import { Food, FoodEntryGroup, FoodType } from "./models/food";
 import { Music, MusicEntryGroup } from "./models/music";
 import { Socializing, SocializingEntryGroup } from "./models/socializing";
+import { stringify } from "querystring";
 
 export var food_json = [
     require("./../www/data/Data_Person1_Food.json"),
@@ -29,8 +30,8 @@ export var socializing_json = [
     require("./../www/data/Data_Person6_Socializing.json")
 ];
 
-let person_all: boolean[] = [true, true, true, false, false, false];
-let days_all: boolean[] = [false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+let person_all: boolean[] = [true, true, true, true, true, true];
+let days_all: boolean[] = [true, true, true, true, true, true, true, true, true, true, true, true, true, true];
 
 var food_data: Array<Array<Food>> = [];
 var music_data: Array<Array<Music>> = [];
@@ -80,22 +81,24 @@ export function food_get_data_filtered_and_accumulated(personIndicies: boolean[]
 
         let new_data: Array<Food> = [];
         for ( var day = 0; day < firs_set.length; day++ ) {
-            let day_food = { date: firs_set[day].date, entryGroups: []} as Food;
+            if ( dayIndicies[day] ) {
+                let day_food = { date: firs_set[day].date, entryGroups: []} as Food;
             
-            for ( var entryGroup = 0; entryGroup < firs_set[day].entryGroups.length; entryGroup++ ) {
-                let day_entry_group = {daytime: firs_set[day].entryGroups[entryGroup].daytime, entries: []} as FoodEntryGroup;
-
-                for ( var sets = 0; sets < filtered_by_person.length; sets++ ) {
-                    let set_entry_group = filtered_by_person[sets][day].entryGroups[entryGroup];
-                    for ( var set_entry = 0; set_entry < set_entry_group.entries.length; set_entry++ ) {
-                        day_entry_group.entries.push(set_entry_group.entries[set_entry]);
+                for ( var entryGroup = 0; entryGroup < firs_set[day].entryGroups.length; entryGroup++ ) {
+                    let day_entry_group = {daytime: firs_set[day].entryGroups[entryGroup].daytime, entries: []} as FoodEntryGroup;
+    
+                    for ( var sets = 0; sets < filtered_by_person.length; sets++ ) {
+                        let set_entry_group = filtered_by_person[sets][day].entryGroups[entryGroup];
+                        for ( var set_entry = 0; set_entry < set_entry_group.entries.length; set_entry++ ) {
+                            day_entry_group.entries.push(set_entry_group.entries[set_entry]);
+                        }
                     }
+    
+                    day_food.entryGroups.push(day_entry_group);
                 }
-
-                day_food.entryGroups.push(day_entry_group);
+    
+                new_data.push(day_food);
             }
-
-            new_data.push(day_food);
         }
 
         return new_data;
@@ -207,22 +210,25 @@ export function music_get_data_filtered_and_accumulated(personIndicies: boolean[
 
         let new_data: Array<Music> = [];
         for ( var day = 0; day < firs_set.length; day++ ) {
-            let day_music = { date: firs_set[day].date, entryGroups: []} as Music;
+            if ( dayIndicies[day] ) {
+                let day_music = { date: firs_set[day].date, entryGroups: []} as Music;
             
-            for ( var entryGroup = 0; entryGroup < firs_set[day].entryGroups.length; entryGroup++ ) {
-                let day_entry_group = {daytime: firs_set[day].entryGroups[entryGroup].daytime, entries: []} as MusicEntryGroup;
+                for ( var entryGroup = 0; entryGroup < firs_set[day].entryGroups.length; entryGroup++ ) {
+                    let day_entry_group = {daytime: firs_set[day].entryGroups[entryGroup].daytime, entries: []} as MusicEntryGroup;
 
-                for ( var sets = 0; sets < filtered_by_person.length; sets++ ) {
-                    let set_entry_group = filtered_by_person[sets][day].entryGroups[entryGroup];
-                    for ( var set_entry = 0; set_entry < set_entry_group.entries.length; set_entry++ ) {
-                        day_entry_group.entries.push(set_entry_group.entries[set_entry]);
+                    for ( var sets = 0; sets < filtered_by_person.length; sets++ ) {
+                        let set_entry_group = filtered_by_person[sets][day].entryGroups[entryGroup];
+                        for ( var set_entry = 0; set_entry < set_entry_group.entries.length; set_entry++ ) {
+                            day_entry_group.entries.push(set_entry_group.entries[set_entry]);
+                        }
                     }
+
+                    day_music.entryGroups.push(day_entry_group);
                 }
 
-                day_music.entryGroups.push(day_entry_group);
+                new_data.push(day_music);
             }
-
-            new_data.push(day_music);
+            
         }
 
         return new_data;
@@ -368,22 +374,25 @@ export function socializing_get_data_filtered_and_accumulated(personIndicies: bo
 
         let new_data: Array<Socializing> = [];
         for ( var day = 0; day < firs_set.length; day++ ) {
-            let day_soc = { date: firs_set[day].date, entryGroups: []} as Socializing;
+            if ( dayIndicies[day] ) {
+                let day_soc = { date: firs_set[day].date, entryGroups: []} as Socializing;
             
-            for ( var entryGroup = 0; entryGroup < firs_set[day].entryGroups.length; entryGroup++ ) {
-                let day_entry_group = {daytime: firs_set[day].entryGroups[entryGroup].daytime, entries: []} as SocializingEntryGroup;
-
-                for ( var sets = 0; sets < filtered_by_person.length; sets++ ) {
-                    let set_entry_group = filtered_by_person[sets][day].entryGroups[entryGroup];
-                    for ( var set_entry = 0; set_entry < set_entry_group.entries.length; set_entry++ ) {
-                        day_entry_group.entries.push(set_entry_group.entries[set_entry]);
+                for ( var entryGroup = 0; entryGroup < firs_set[day].entryGroups.length; entryGroup++ ) {
+                    let day_entry_group = {daytime: firs_set[day].entryGroups[entryGroup].daytime, entries: []} as SocializingEntryGroup;
+    
+                    for ( var sets = 0; sets < filtered_by_person.length; sets++ ) {
+                        let set_entry_group = filtered_by_person[sets][day].entryGroups[entryGroup];
+                        for ( var set_entry = 0; set_entry < set_entry_group.entries.length; set_entry++ ) {
+                            day_entry_group.entries.push(set_entry_group.entries[set_entry]);
+                        }
                     }
+    
+                    day_soc.entryGroups.push(day_entry_group);
                 }
-
-                day_soc.entryGroups.push(day_entry_group);
+    
+                new_data.push(day_soc);
             }
 
-            new_data.push(day_soc);
         }
 
         return new_data;
@@ -495,4 +504,69 @@ export function test_soc() {
 
     //console.log(socializing_get_data_filtered_and_accumulated(test_person, test_days));
     //console.log(socializing_get_data_filtered_and_accumulated_values_daywise(test_person, test_days));
+    console.log(compress_records(socializing_get_data_filtered_and_accumulated_values_daywise(test_person, test_days)));
+}
+
+
+export function compress_records(daywise_records: Record<string, Record<string, number>>[]): Record<string, Record<string, number>> {
+    let global_record: Record<string, Record<string, number>> = {};
+
+    for ( var i = 0; i < daywise_records.length; i++ ) {
+        let day_record = daywise_records[i] as Record<string, Record<string, number>>;
+        
+        let attribute;
+        for ( attribute in day_record ) {
+            if ( global_record[attribute] === undefined ) {
+                global_record[attribute] = {};
+            }
+
+            let value;
+            for ( value in day_record[attribute] ) {
+                if ( global_record[attribute][value] === undefined ) {
+                    global_record[attribute][value] = 0;
+                }
+
+                global_record[attribute][value] += day_record[attribute][value];
+            }
+        }
+    }
+
+    return global_record;
+}
+
+export function compressed_records_to_bubble_chart_data(compressed_records: Record<string, Record<string, number>>): Record<string, {name: string, value: number}[]> {
+    let map: Record<string, {name: string, value: number}[]> = {};
+
+    let attribute;
+    for ( attribute in compressed_records ) {
+        map[attribute] = [];
+
+        let value;
+        for ( value in compressed_records[attribute] ) {
+            map[attribute].push({
+                name: value,
+                value: compressed_records[attribute][value]
+            });
+        }
+    }
+
+    return map;
+}
+
+export function remove_empty_values(bubble_chart_compressed_records: Record<string, {name: string, value: number}[]>): Record<string, {name: string, value: number}[]> {
+    let map: Record<string, {name: string, value: number}[]> = {};
+
+    let attribute;
+    for ( attribute in bubble_chart_compressed_records ) {
+        map[attribute] = [];
+
+        for ( var i = 0; i < bubble_chart_compressed_records[attribute].length; i++ ) {
+            let entry = bubble_chart_compressed_records[attribute][i];
+            if ( entry.value > 0 ) {
+                map[attribute].push(entry);
+            }
+        }
+    }
+
+    return map;
 }
