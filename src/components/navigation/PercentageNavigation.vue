@@ -185,53 +185,44 @@ export default class PercentageNavigationComponent extends Vue implements Calend
         let comp = this;
 
         if ( container !== null && nav !== null && close !== null && sync !== null && dragger !== null ) {
+            addClickAndLongClickToElement(container, 
+            function(event: Event) {
+            },
+            function(event: Event) {
+                let x = (event as MouseEvent).clientX;
+                let y = (event as MouseEvent).clientY;
+
+                let navRect = nav.getBoundingClientRect();
+                let width = navRect.width/0.2;
+                let height = navRect.height/0.2;
+
+                let newLeft = x-width/2;
+                let newTop = y-height/2;
+
+                let containerRect = container.getBoundingClientRect();
+                nav.classList.toggle('nav-animate-absoulte', true);
+                
+                if ( newLeft < 0 ) {
+                    nav.style.left = "0px";
+                } else if ( newLeft+width > containerRect.width ) {
+                    nav.style.left = String(containerRect.width-width)+"px";
+                } else {
+                    nav.style.left = String(newLeft)+"px";
+                }
+
+                if ( newTop < 0 ) {
+                    nav.style.top = String(containerRect.top)+"px";
+                } else if ( newTop+height > containerRect.height ) {
+                    nav.style.top = String(containerRect.height-height)+"px";
+                } else {
+                    nav.style.top = String(newTop)+"px";
+                }
+
+                nav.classList.toggle('hidden', false);
+            }, 500);
+
             close.addEventListener('click', function() {
                 nav.classList.toggle('hidden', true);
-            });
-
-            let timeout: number = -1;
-
-            container.addEventListener("mousedown", function(event) {
-                if ( nav.classList.contains('hidden') ) {
-                    timeout = setTimeout(function() {
-
-                        let x = (event as MouseEvent).clientX;
-                        let y = (event as MouseEvent).clientY;
-
-                        let navRect = nav.getBoundingClientRect();
-                        let width = navRect.width/0.2;
-                        let height = navRect.height/0.2;
-
-                        let newLeft = x-width/2;
-                        let newTop = y-height/2;
-
-                        let containerRect = container.getBoundingClientRect();
-                        nav.classList.toggle('nav-animate-absoulte', true);
-                        
-                        if ( newLeft < 0 ) {
-                            nav.style.left = "0px";
-                        } else if ( newLeft+width > containerRect.width ) {
-                            nav.style.left = String(containerRect.width-width)+"px";
-                        } else {
-                            nav.style.left = String(newLeft)+"px";
-                        }
-
-                        if ( newTop < 0 ) {
-                            nav.style.top = String(containerRect.top)+"px";
-                        } else if ( newTop+height > containerRect.height ) {
-                            nav.style.top = String(containerRect.height-height)+"px";
-                        } else {
-                            nav.style.top = String(newTop)+"px";
-                        }
-
-                        nav.classList.toggle('hidden', false);
-                    }, longclick_delay);
-                }
-            });
-
-            container.addEventListener("mouseup", function(event){
-                clearTimeout((timeout as number));
-                return false;
             });
         }
     }
@@ -265,6 +256,56 @@ export default class PercentageNavigationComponent extends Vue implements Calend
         let dragger = this.$el.querySelector('.nav-cursor') as HTMLElement;
 
         if ( nav !== null && dragger !== null ) {
+            nav.addEventListener("touchstart", function(event) {
+                let touchStartEvent = event as TouchEvent;
+
+                let startX = touchStartEvent.touches[0].clientX;
+                let startY = touchStartEvent.touches[0].clientY;
+                let startOffsetTop = nav.offsetTop as number;
+                let startOffsetLeft = nav.offsetLeft as number;
+
+                function dragMove(e: Event) {
+                    let touchMoveEvent = e as TouchEvent;
+                    touchMoveEvent.preventDefault();
+
+                    let currentX = touchMoveEvent.touches[0].clientX;
+                    let currentY = touchMoveEvent.touches[0].clientY;
+
+                    let deltaX = currentX-startX;
+                    let deltaY = currentY-startY;
+
+                    let newX = startOffsetLeft+deltaX;
+                    let newY = startOffsetTop+deltaY;                           
+
+                    nav.style.top = String(newY)+"px";
+                    nav.style.left = String(newX)+"px";
+                }
+
+                function touchUp(e: Event) {
+                    nav.removeEventListener('touchmove', dragMove, true);
+                    nav.removeEventListener('touchend', touchUp, true);
+
+                    nav.classList.toggle('nav-animate-absoulte', true);
+                    dragger.classList.toggle('dragged', false);
+                    comp.moveNavBackToContainer();
+                }
+
+                let cursorRect = dragger.getBoundingClientRect();
+                if ( cursorRect.left <= touchStartEvent.touches[0].clientX &&
+                     cursorRect.right >= touchStartEvent.touches[0].clientX &&
+                     cursorRect.top <= touchStartEvent.touches[0].clientY && 
+                     cursorRect.bottom >= touchStartEvent.touches[0].clientY ) {
+
+                        touchStartEvent.preventDefault();
+                        nav.addEventListener('touchmove', dragMove, true);
+                        nav.addEventListener('touchend', touchUp, true);
+
+                        nav.classList.toggle('nav-animate-absoulte', false);
+                        dragger.classList.toggle('dragged', true);         
+                }
+            });
+
+
             nav.addEventListener('mousedown', function(event) {
                 let downMouseEvent = event as MouseEvent;           
 
@@ -292,7 +333,7 @@ export default class PercentageNavigationComponent extends Vue implements Calend
 
                 function mouseUp(e: Event) {
                     nav.removeEventListener('mousemove', dragMove, true);
-                    nav.removeEventListener('mousemove', mouseUp, true);
+                    nav.removeEventListener('mouseup', mouseUp, true);
 
                     nav.classList.toggle('nav-animate-absoulte', true);
                     dragger.classList.toggle('dragged', false);
