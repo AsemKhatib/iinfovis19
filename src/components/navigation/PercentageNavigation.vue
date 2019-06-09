@@ -220,10 +220,11 @@ export default class PercentageNavigationComponent extends Vue implements Calend
 
                 nav.classList.toggle('hidden', false);
             }, 500);
-
-            close.addEventListener('click', function() {
+            
+            addClickAndLongClickToElement(close,
+            function() {
                 nav.classList.toggle('hidden', true);
-            });
+            }, null, 500);
         }
     }
 

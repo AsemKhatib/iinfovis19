@@ -222,9 +222,10 @@ export default class FoodNavigationComponent extends Vue implements CalendarNavi
                 nav.classList.toggle('hidden', false);
             }, 500);
 
-            close.addEventListener('click', function() {
+            addClickAndLongClickToElement(close,
+            function() {
                 nav.classList.toggle('hidden', true);
-            });
+            }, null, 500);
         }
     }
 
@@ -268,6 +269,7 @@ export default class FoodNavigationComponent extends Vue implements CalendarNavi
                 function dragMove(e: Event) {
                     let touchMoveEvent = e as TouchEvent;
                     touchMoveEvent.preventDefault();
+                    console.log("event");
 
                     let currentX = touchMoveEvent.touches[0].clientX;
                     let currentY = touchMoveEvent.touches[0].clientY;
@@ -289,6 +291,7 @@ export default class FoodNavigationComponent extends Vue implements CalendarNavi
                     nav.classList.toggle('nav-animate-absoulte', true);
                     dragger.classList.toggle('dragged', false);
                     comp.moveNavBackToContainer();
+                    e.preventDefault();
                 }
 
                 let cursorRect = dragger.getBoundingClientRect();
@@ -338,6 +341,7 @@ export default class FoodNavigationComponent extends Vue implements CalendarNavi
                     nav.classList.toggle('nav-animate-absoulte', true);
                     dragger.classList.toggle('dragged', false);
                     comp.moveNavBackToContainer();
+                    e.preventDefault();
                 }
 
                 let cursorRect = dragger.getBoundingClientRect();
