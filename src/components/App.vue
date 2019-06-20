@@ -5,15 +5,17 @@
         <!-- PLEASE do not use row class of bootstrap -> contains negative margin -> makes working with our
              absolute movable navs harder !!!! -->
         <div class="my-row">
-            <div class="col-md-12 col-lg-4">
+            <div class="col-md-12 col-lg-3">
                 <food-component ref="food"/>
             </div>
-            <div class="col-md-12 col-lg-4">
+            <div class="col-md-12 col-lg-3">
                 <music-component ref="music"/>
             </div>
-            <div class="col-md-12 col-lg-4">
-                
+            <div class="col-md-12 col-lg-3">
                 <socializing-component ref="socializing"/>
+            </div>
+            <div class="col-md-12 col-lg-3">
+                <socializing-component ref="chart"/>
             </div>
         </div>
 
@@ -24,6 +26,7 @@
 <script lang="ts">
 
 import { Vue, Component, Prop } from "vue-property-decorator";
+import ChartComponent from "./Chart.vue";
 import FoodComponent from "./Food.vue";
 import MusicComponent from "./Music.vue";
 import SocializingComponent from "./Socializing.vue";
@@ -35,7 +38,7 @@ import {read_all_data, test_food, test_music, test_soc} from "./../data_helper";
 
 
 @Component({
-    components: {FoodComponent, MusicComponent, SocializingComponent, ParserComponent}
+    components: {ChartComponent, FoodComponent, MusicComponent, SocializingComponent, ParserComponent}
 })
 export default class App extends Vue {
 
@@ -50,15 +53,25 @@ export default class App extends Vue {
             let navFood = (this.$refs.food as FoodComponent).$refs.nav as FoodNavigationComponent;
             let navMusic = (this.$refs.music as MusicComponent).$refs.nav as PercentageNavigationComponent;
             let navSocializing = (this.$refs.socializing as SocializingComponent).$refs.nav as PercentageNavigationComponent;
+            let navChart = (this.$refs.chart as ChartComponent).$refs.nav as PercentageNavigationComponent;
+
 
             navFood.addOtherPercentageNavigationComponent(navMusic);
             navFood.addOtherPercentageNavigationComponent(navSocializing);
+            navFood.addOtherPercentageNavigationComponent(navChart);
+
+            navChart.addOtherFoodNavigationComponent(navFood);
+            navChart.addOtherPercentageNavigationComponent(navSocializing);
+            navChart.addOtherPercentageNavigationComponent(navMusic);
+
 
             navMusic.addOtherFoodNavigationComponent(navFood);
             navMusic.addOtherPercentageNavigationComponent(navSocializing);
+            navMusic.addOtherPercentageNavigationComponent(navChart);
 
             navSocializing.addOtherFoodNavigationComponent(navFood);
             navSocializing.addOtherPercentageNavigationComponent(navMusic);
+            navSocializing.addOtherPercentageNavigationComponent(navChart);
         });
     }
 
