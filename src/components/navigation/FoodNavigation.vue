@@ -3,7 +3,7 @@
     <div>
         <!-- Absolute and lays over the container to interfere touch events -->
         <div class="nav-touch noselect">
-            <!-- used to be make position relative again -->
+            <!-- used to be make position relative again --- I USE THIS ONE FOR TOUCH EVENTS -->
             <div class="nav-container">
                 <!-- absolute within nav-container -->
                 <div class="nav-move hidden">

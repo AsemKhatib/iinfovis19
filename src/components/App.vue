@@ -6,14 +6,35 @@
              absolute movable navs harder !!!! -->
         <div class="my-row">
             <div class="col-md-12 col-lg-4">
-                <food-component ref="food"/>
-            </div>
-            <div class="col-md-12 col-lg-4">
-                <music-component ref="music"/>
-            </div>
-            <div class="col-md-12 col-lg-4">
+                <div class="column-title">
+                    <span>Food</span>
+                </div>
+
+                <div class="column-content">
+                    <food-component ref="food"/>
+                </div>
                 
-                <socializing-component ref="socializing"/>
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <div class="column-title">
+                    <span>Music</span>
+                </div>
+
+                <div class="column-content">
+                    <music-component ref="music"/>
+                </div>
+                
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <div class="column-title">
+                    <span>Socializing</span>
+                </div>
+
+                <div class="column-content">
+                    <socializing-component ref="socializing"/>
+                </div>
+                
+                
             </div>
         </div>
 
@@ -76,10 +97,53 @@ body {
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
+}
 
+body > div {
+    height: 100% !important;
+}
+
+body > div > div {
+    height: 100% !important;
+}
+
+body > div  > div > div{
+    height: 100% !important;
 }
 
 .my-row {
     display: flex;
+}
+
+div.column-title {
+    height: 4rem;
+    width: 100%;
+    display: block;
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+div.column-title > span {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding: 0.4rem;
+    border-radius: 1rem;
+    background-color: #222;
+    color: white;
+}
+
+div.column-content {
+    height: 90%;
+    height: calc(100% - 4rem);
+    width: 100%;
+    display: block;
+}
+
+div.column-content > div {
+    height: 100% !important;
+}
+
+div.column-content > div > div.chart-container {
+    height: 100% !important;
 }
 </style>
