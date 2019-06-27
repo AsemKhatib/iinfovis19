@@ -1,38 +1,38 @@
 <!-- HTML Content -->
 <template>
     <div v-touch:swipe.left="changeContent" v-touch:swipe.right="changeContent">
-        <transition name="fade" mode="out-in" v-on:before-enter="beforeEnter">
-            <div v-if="showBubbles" key="bubbles">
+        <transition-group name="fade" mode="out-in">
+            <div v-show="showBubbles" key="bubbles">
                 <div class="chart-container" >
-            <div class="third-row ">
-                <div class="cell-subtitle">Duration</div>
-                <div class="cell-padding">
-                    <bubble-chart ref="socDurationChart"/>
-                </div>
-                
+                    <div class="third-row ">
+                        <div class="cell-subtitle">Duration</div>
+                        <div class="cell-padding">
+                            <bubble-chart ref="socDurationChart"/>
+                        </div>
+                        
+                    </div>
+                    <div class="third-row bg-gray">
+                        <div class="cell-subtitle">With whom?</div>
+                        <div class="cell-padding">
+                            <bubble-chart ref="socTypeChart"/>
+                        </div>
+                        
+                    </div>
+                    <div class="third-row ">
+                        <div class="cell-subtitle">Amount of people</div>
+                        <div class="cell-padding">
+                            <bubble-chart ref="socAmountChart"/>
+                        </div>
+                        
+                    </div>
+                        
+                        <percentage-navigation-component ref="nav"/>
+                    </div>
             </div>
-            <div class="third-row bg-gray">
-                <div class="cell-subtitle">With whom?</div>
-                <div class="cell-padding">
-                    <bubble-chart ref="socTypeChart"/>
-                </div>
-                
-            </div>
-            <div class="third-row ">
-                <div class="cell-subtitle">Amount of people</div>
-                <div class="cell-padding">
-                    <bubble-chart ref="socAmountChart"/>
-                </div>
-                
-            </div>
-                
-                <percentage-navigation-component ref="nav"/>
-            </div>
-            </div>
-            <div v-else key="time">
+            <div v-show="!showBubbles" key="time">
                 hello world
             </div>
-        </transition>
+        </transition-group>
     </div>
 </template>
 
@@ -103,20 +103,6 @@ export default class SocializingComponent extends Vue implements CalendarNavigat
         this.showBubbles = !this.showBubbles;
     }
 
-    beforeEnter() {
-        if(this.showBubbles) {
-            this.$nextTick(function() {  
-                this.nav = this.$refs.nav as PercentageNavigationComponent;
-                this.chart_duration = this.$refs.socDurationChart as BubbleChart;
-                this.chart_type = this.$refs.socTypeChart as BubbleChart;
-                this.chart_amount = this.$refs.socAmountChart as BubbleChart;
-
-                this.nav.addCalendarNavigationIndiciesChangedListener(this);
-                this.nav.addPersonNavigationIndiciesChangedListener(this);
-            });
-        }
-
-    }
 }
 </script>
 

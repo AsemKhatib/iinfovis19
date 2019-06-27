@@ -1,8 +1,8 @@
 <!-- HTML Content -->
 <template>
     <div v-touch:swipe.left="changeContent" v-touch:swipe.right="changeContent">
-        <transition name="fade" mode="out-in" v-on:before-enter="beforeEnter">
-            <div v-if="showBubbles" key="bubbles">
+        <transition-group name="fade" mode="out-in">
+            <div v-show="showBubbles" key="bubbles">
             <div class="chart-container">
             <div class="third-row ">
                 <div class="cell-subtitle">Type of food</div>
@@ -29,10 +29,10 @@
 
             </div>
             </div>
-            <div v-else key="time">
+            <div v-show="!showBubbles" key="time">
                 hello world
             </div>
-        </transition>
+        </transition-group>
     </div>
 </template>
 
@@ -101,22 +101,6 @@ export default class FoodComponent extends Vue
     changeContent() {
         this.showBubbles = !this.showBubbles;
     }
-
-    beforeEnter() {
-        if(this.showBubbles) {
-            this.$nextTick(function() {
-                this.nav = this.$refs.nav as FoodNavigationComponent;
-                this.chart_type = this.$refs.foodTypeChart as BubbleChart;
-                this.chart_size = this.$refs.foodSizeChart as BubbleChart;
-                this.chart_place = this.$refs.foodPlaceChart as BubbleChart;
-
-                this.nav.addCalendarNavigationIndiciesChangedListener(this);
-                this.nav.addPersonNavigationIndiciesChangedListener(this);
-            });
-        }
-
-    }
-
 
 }
 </script>

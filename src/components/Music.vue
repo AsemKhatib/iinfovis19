@@ -1,8 +1,8 @@
 <!-- HTML Content -->
 <template>
     <div v-touch:swipe.left="changeContent" v-touch:swipe.right="changeContent">
-        <transition name="fade" mode="out-in" v-on:before-enter="beforeEnter">
-            <div v-if="showBubbles" key="bubbles">
+        <transition-group name="fade" mode="out-in">
+            <div v-show="showBubbles" key="bubbles">
                 <!-- Example content -->
                 <div class="chart-container">
             <div class="third-row bg-gray">
@@ -36,10 +36,10 @@
                 
                 <percentage-navigation-component ref="nav"/>
             </div>
-            <div v-else key="time">
+            <div v-show="!showBubbles" key="time">
                 hello world
             </div>
-        </transition>
+        </transition-group>
     </div>
 </template>
 
@@ -113,24 +113,6 @@ export default class MusicComponent extends Vue implements CalendarNavigationInd
     changeContent() {
         this.showBubbles = !this.showBubbles;
     }
-
-    beforeEnter() {
-        if(this.showBubbles) {
-            this.$nextTick(function() {
-                this.nav = this.$refs.nav as PercentageNavigationComponent;
-                this.chart_duration = this.$refs.musicDurationChart as BubbleChart;
-                this.chart_intention = this.$refs.musicIntentionChart as BubbleChart;
-                this.chart_activity = this.$refs.musicActivityChart as BubbleChart;
-                this.chart_content_type = this.$refs.musicContentTypeChart as BubbleChart;
-                this.chart_medium = this.$refs.musicMediumChart as BubbleChart;
-
-                this.nav.addCalendarNavigationIndiciesChangedListener(this);
-                this.nav.addPersonNavigationIndiciesChangedListener(this);
-            });
-        }
-
-    }
-
 
 }
 </script>
