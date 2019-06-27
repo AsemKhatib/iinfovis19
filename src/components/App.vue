@@ -111,6 +111,8 @@ body > div  > div > div{
     height: 100% !important;
 }
 
+
+
 .my-row {
     display: flex;
 }
@@ -143,7 +145,11 @@ div.column-content > div {
     height: 100% !important;
 }
 
-div.column-content > div > div.chart-container {
+div.column-content > div > div{
+    height: 100% !important;
+}
+
+div.column-content > div > div > div.chart-container {
     height: 100% !important;
 }
 

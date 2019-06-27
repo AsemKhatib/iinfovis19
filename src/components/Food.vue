@@ -28,6 +28,7 @@
                 <food-navigation-component ref="nav"/>
 
             </div>
+            </div>
             <div v-else key="time">
                 hello world
             </div>
@@ -43,7 +44,6 @@ import BubbleChart from "./vis/BubbleChart.vue";
 
 import { CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener} from "./navigation/Listeners";
 import { compressed_records_to_bubble_chart_data, food_get_daywise_major_food_type, food_get_data_filtered_and_accumulated_values_daywise, compress_records, remove_empty_values } from "./../data_helper"; 
-import { addHorizontalSwipeListener } from "./util";
 
 @Component({
     components: {FoodNavigationComponent, BubbleChart}

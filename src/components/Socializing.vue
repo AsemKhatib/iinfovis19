@@ -28,6 +28,7 @@
                 
                 <percentage-navigation-component ref="nav"/>
             </div>
+            </div>
             <div v-else key="time">
                 hello world
             </div>

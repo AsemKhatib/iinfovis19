@@ -132,6 +132,7 @@ export default class FoodNavigationComponent extends Vue implements CalendarNavi
     }
 
     sync() {
+        console.log("lol");
         let dayIndicies = this.getSelectedDayIndicies();
         let personIndicies = this.getSelectedPersonIndicies();
 
