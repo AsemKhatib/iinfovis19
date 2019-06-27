@@ -189,6 +189,7 @@ export default class PercentageNavigationComponent extends Vue implements Calend
             function(event: Event) {
             },
             function(event: Event) {
+                if ( !nav.classList.contains('hidden' )) return;
                 let x = (event as MouseEvent).clientX;
                 let y = (event as MouseEvent).clientY;
 

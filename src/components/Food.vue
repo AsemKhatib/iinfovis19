@@ -1,15 +1,27 @@
 <!-- HTML Content -->
 <template>
     <div>
-        <div class="chart-container">
-            <div class="third-row">
-                <bubble-chart ref="foodTypeChart"/>
+        <div class="chart-container" ref="container">
+            <div class="third-row ">
+                <div class="cell-subtitle">Type of food</div>
+                <div class="cell-padding">
+                    <bubble-chart ref="foodTypeChart"/>
+                </div>
+                
             </div>
-            <div class="third-row">
-                <bubble-chart ref="foodSizeChart"/>
+            <div class="third-row bg-gray">
+                <div class="cell-subtitle">Meal size</div>
+                <div class="cell-padding">
+                    <bubble-chart ref="foodSizeChart"/>
+                </div>
+                
             </div>
-            <div class="third-row">
-                <bubble-chart ref="foodPlaceChart"/>
+            <div class="third-row ">
+                <div class="cell-padding">
+                    <div class="cell-subtitle">Where eaten?</div>
+                    <bubble-chart ref="foodPlaceChart"/>
+                </div>
+                
             </div>
         </div>
 
@@ -26,6 +38,7 @@ import BubbleChart from "./vis/BubbleChart.vue";
 
 import { CalendarNavigationIndiciesChangedListener, PersonNavigationIndiciesChangedListener} from "./navigation/Listeners";
 import { compressed_records_to_bubble_chart_data, food_get_daywise_major_food_type, food_get_data_filtered_and_accumulated_values_daywise, compress_records, remove_empty_values } from "./../data_helper"; 
+import { addHorizontalSwipeListener } from "./util";
 
 @Component({
     components: {FoodNavigationComponent, BubbleChart}
@@ -46,6 +59,8 @@ export default class FoodComponent extends Vue
 
             this.nav.addCalendarNavigationIndiciesChangedListener(this);
             this.nav.addPersonNavigationIndiciesChangedListener(this);
+
+           
         });
     }
 
@@ -90,9 +105,9 @@ export default class FoodComponent extends Vue
 
 .third-row {
     width: 100%;
-    height: 33%;
+    height: 33.33%;
     box-sizing: border-box;
-    padding: 1rem;
+    
 }
 
 .chart-container {
@@ -100,4 +115,5 @@ export default class FoodComponent extends Vue
     width: 100%;
     height: 100vh;
 }
+
 </style>

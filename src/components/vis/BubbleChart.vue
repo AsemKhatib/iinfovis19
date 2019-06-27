@@ -96,7 +96,8 @@ export default class BubbleChart extends Vue {
                 .attr("id", function(d) { return "leaf-"+String(uuid()); })
                 .attr("r", d => d.r)
                 .attr("fill-opacity", 0.7)
-                .attr("fill", "#ff0000");
+                .attr("fill", "#ff0000")
+                .attr("class", "blubble-chart-cirlce");
 
             this.leaf.append("text")
                 .attr("clip-path", d => d.clipUid)

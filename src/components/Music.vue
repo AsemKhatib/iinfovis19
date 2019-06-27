@@ -3,22 +3,29 @@
     <div>
         <!-- Example content -->
         <div class="chart-container">
-            <div class="third-row">
-                <div class="half-column">
+            <div class="third-row bg-gray">
+                <div class="half-column my-border-right">
+                    <div class="cell-subtitle">Duration</div>
                     <bubble-chart ref="musicDurationChart"/>
                 </div>
-                <div class="half-column">
+                <div class="half-column ">
+                    <div class="cell-subtitle">Intention</div>
                     <bubble-chart ref="musicIntentionChart"/>
                 </div>
             </div>
             <div class="third-row">
-                <bubble-chart ref="musicActivityChart"/>
+                <div class="cell-subtitle">Activity while listening</div>
+                <div class="cell-padding">
+                    <bubble-chart ref="musicActivityChart"/>
+                </div>
             </div>
-            <div class="third-row">
-                <div class="half-column">
+            <div class="third-row bg-gray">
+                <div class="half-column my-border-right">
+                    <div class="cell-subtitle">Content type</div>
                     <bubble-chart ref="musicContentTypeChart"/>
                 </div>
-                <div class="half-column">
+                <div class="half-column ">
+                    <div class="cell-subtitle">Medium</div>
                     <bubble-chart ref="musicMediumChart"/>
                 </div>
                 
@@ -105,9 +112,9 @@ export default class MusicComponent extends Vue implements CalendarNavigationInd
 
 .third-row {
     width: 100%;
-    height: 33%;
+    height: 33.33%;
     box-sizing: border-box;
-    padding: 2rem;
+    
 }
 
 .chart-container {
@@ -118,8 +125,13 @@ export default class MusicComponent extends Vue implements CalendarNavigationInd
 
 .half-column {
     display: inline-block;
-    width: 48%;
+    width: calc(49%);
     height: 100%;
+    height: calc(100% - 1.8rem);
     padding: 2rem;
+}
+
+.my-border-right {
+    border-right: 0.08rem solid rgb(210, 210, 210) !important;
 }
 </style>

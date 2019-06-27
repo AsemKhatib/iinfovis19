@@ -2,14 +2,26 @@
 <template>
     <div>
         <div class="chart-container">
-            <div class="third-row">
-                <bubble-chart ref="socDurationChart"/>
+            <div class="third-row ">
+                <div class="cell-subtitle">Duration</div>
+                <div class="cell-padding">
+                    <bubble-chart ref="socDurationChart"/>
+                </div>
+                
             </div>
-            <div class="third-row">
-                <bubble-chart ref="socTypeChart"/>
+            <div class="third-row bg-gray">
+                <div class="cell-subtitle">With whom?</div>
+                <div class="cell-padding">
+                    <bubble-chart ref="socTypeChart"/>
+                </div>
+                
             </div>
-            <div class="third-row">
-                <bubble-chart ref="socAmountChart"/>
+            <div class="third-row ">
+                <div class="cell-subtitle">Amount of people</div>
+                <div class="cell-padding">
+                    <bubble-chart ref="socAmountChart"/>
+                </div>
+                
             </div>
         </div>
         
@@ -85,9 +97,9 @@ export default class SocializingComponent extends Vue implements CalendarNavigat
 <style>
 .third-row {
     width: 100%;
-    height: 33%;
+    height: 33.33%;
     box-sizing: border-box;
-    padding: 1rem;
+    
 }
 
 .chart-container {
