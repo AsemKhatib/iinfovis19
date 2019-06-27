@@ -1,7 +1,9 @@
 <!-- HTML Content -->
 <template>
-    <div>
-        <div class="chart-container">
+    <div v-touch:swipe.left="changeContent" v-touch:swipe.right="changeContent">
+        <transition name="fade" mode="out-in" v-on:before-enter="beforeEnter">
+            <div v-if="showBubbles" key="bubbles">
+                <div class="chart-container" >
             <div class="third-row ">
                 <div class="cell-subtitle">Duration</div>
                 <div class="cell-padding">
@@ -23,9 +25,13 @@
                 </div>
                 
             </div>
-        </div>
-        
-        <percentage-navigation-component ref="nav"/>
+                
+                <percentage-navigation-component ref="nav"/>
+            </div>
+            <div v-else key="time">
+                hello world
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -47,6 +53,8 @@ export default class SocializingComponent extends Vue implements CalendarNavigat
     chart_duration: BubbleChart | null = null;
     chart_type: BubbleChart | null = null;
     chart_amount: BubbleChart | null = null;
+
+    showBubbles = true;
 
     mounted() {
         this.$nextTick(function() {  
@@ -90,6 +98,24 @@ export default class SocializingComponent extends Vue implements CalendarNavigat
         this.updateData();
     }
 
+    changeContent() {
+        this.showBubbles = !this.showBubbles;
+    }
+
+    beforeEnter() {
+        if(this.showBubbles) {
+            this.$nextTick(function() {  
+                this.nav = this.$refs.nav as PercentageNavigationComponent;
+                this.chart_duration = this.$refs.socDurationChart as BubbleChart;
+                this.chart_type = this.$refs.socTypeChart as BubbleChart;
+                this.chart_amount = this.$refs.socAmountChart as BubbleChart;
+
+                this.nav.addCalendarNavigationIndiciesChangedListener(this);
+                this.nav.addPersonNavigationIndiciesChangedListener(this);
+            });
+        }
+
+    }
 }
 </script>
 
