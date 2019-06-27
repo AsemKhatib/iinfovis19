@@ -1,20 +1,38 @@
 <!-- HTML Content -->
 <template>
-    <div>
-        <div class="chart-container">
-            <div class="third-row">
-                <bubble-chart ref="foodTypeChart"/>
+    <div v-touch:swipe.left="changeContent" v-touch:swipe.right="changeContent">
+        <transition name="fade" mode="out-in" v-on:before-enter="beforeEnter">
+            <div v-if="showBubbles" key="bubbles">
+            <div class="chart-container">
+            <div class="third-row ">
+                <div class="cell-subtitle">Type of food</div>
+                <div class="cell-padding">
+                    <bubble-chart ref="foodTypeChart"/>
+                </div>
+                
             </div>
-            <div class="third-row">
-                <bubble-chart ref="foodSizeChart"/>
+            <div class="third-row bg-gray">
+                <div class="cell-subtitle">Meal size</div>
+                <div class="cell-padding">
+                    <bubble-chart ref="foodSizeChart"/>
+                </div>
+                
             </div>
-            <div class="third-row">
-                <bubble-chart ref="foodPlaceChart"/>
-            </div>
-        </div>
+            <div class="third-row ">
+                <div class="cell-padding">
+                    <div class="cell-subtitle">Where eaten?</div>
+                    <bubble-chart ref="foodPlaceChart"/>
+                </div>
+                </div>
 
-        <food-navigation-component ref="nav"/>
-        
+                <food-navigation-component ref="nav"/>
+
+            </div>
+            </div>
+            <div v-else key="time">
+                hello world
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -36,6 +54,7 @@ export default class FoodComponent extends Vue
     chart_type: BubbleChart | null = null;
     chart_size: BubbleChart | null = null;
     chart_place: BubbleChart | null = null;
+    showBubbles = true;
 
     mounted() {
         this.$nextTick(function() {
@@ -46,6 +65,8 @@ export default class FoodComponent extends Vue
 
             this.nav.addCalendarNavigationIndiciesChangedListener(this);
             this.nav.addPersonNavigationIndiciesChangedListener(this);
+
+           
         });
     }
 
@@ -77,6 +98,24 @@ export default class FoodComponent extends Vue
         this.updateData();
     }
 
+    changeContent() {
+        this.showBubbles = !this.showBubbles;
+    }
+
+    beforeEnter() {
+        if(this.showBubbles) {
+            this.$nextTick(function() {
+                this.nav = this.$refs.nav as FoodNavigationComponent;
+                this.chart_type = this.$refs.foodTypeChart as BubbleChart;
+                this.chart_size = this.$refs.foodSizeChart as BubbleChart;
+                this.chart_place = this.$refs.foodPlaceChart as BubbleChart;
+
+                this.nav.addCalendarNavigationIndiciesChangedListener(this);
+                this.nav.addPersonNavigationIndiciesChangedListener(this);
+            });
+        }
+
+    }
 
 
 }
@@ -90,9 +129,9 @@ export default class FoodComponent extends Vue
 
 .third-row {
     width: 100%;
-    height: 33%;
+    height: 33.33%;
     box-sizing: border-box;
-    padding: 1rem;
+    
 }
 
 .chart-container {
@@ -100,4 +139,5 @@ export default class FoodComponent extends Vue
     width: 100%;
     height: 100vh;
 }
+
 </style>

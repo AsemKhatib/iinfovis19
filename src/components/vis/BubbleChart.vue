@@ -90,13 +90,14 @@ export default class BubbleChart extends Vue {
             this.leaf = g.selectAll("g")
                 .data(this.root_node.leaves())
                 .join("g")
-                .attr("transform", d => `translate(${d.x + 1},${d.y + 1})`);
+                .attr("transform", (d:any) => `translate(${d.x + 1},${d.y + 1})`);
 
             this.leaf.append("circle")
                 .attr("id", function(d) { return "leaf-"+String(uuid()); })
                 .attr("r", d => d.r)
                 .attr("fill-opacity", 0.7)
-                .attr("fill", "#ff0000");
+                .attr("fill", "#ff0000")
+                .attr("class", "blubble-chart-cirlce");
 
             this.leaf.append("text")
                 .attr("clip-path", d => d.clipUid)
@@ -107,7 +108,7 @@ export default class BubbleChart extends Vue {
                 .attr("x", 0)
                 .attr("y", (d, i, nodes) => `${i - nodes.length / 2 + 0.8}em`)
                 .style('fill', 'white')
-                .text(d => d);              
+                .text((d:any) => d);              
         }
     }
 

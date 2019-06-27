@@ -1,31 +1,45 @@
 <!-- HTML Content -->
 <template>
-    <div>
-        <!-- Example content -->
-        <div class="chart-container">
-            <div class="third-row">
-                <div class="half-column">
+    <div v-touch:swipe.left="changeContent" v-touch:swipe.right="changeContent">
+        <transition name="fade" mode="out-in" v-on:before-enter="beforeEnter">
+            <div v-if="showBubbles" key="bubbles">
+                <!-- Example content -->
+                <div class="chart-container">
+            <div class="third-row bg-gray">
+                <div class="half-column my-border-right">
+                    <div class="cell-subtitle">Duration</div>
                     <bubble-chart ref="musicDurationChart"/>
                 </div>
-                <div class="half-column">
+                <div class="half-column ">
+                    <div class="cell-subtitle">Intention</div>
                     <bubble-chart ref="musicIntentionChart"/>
                 </div>
             </div>
             <div class="third-row">
-                <bubble-chart ref="musicActivityChart"/>
+                <div class="cell-subtitle">Activity while listening</div>
+                <div class="cell-padding">
+                    <bubble-chart ref="musicActivityChart"/>
+                </div>
             </div>
-            <div class="third-row">
-                <div class="half-column">
+            <div class="third-row bg-gray">
+                <div class="half-column my-border-right">
+                    <div class="cell-subtitle">Content type</div>
                     <bubble-chart ref="musicContentTypeChart"/>
                 </div>
-                <div class="half-column">
+                <div class="half-column ">
+                    <div class="cell-subtitle">Medium</div>
                     <bubble-chart ref="musicMediumChart"/>
                 </div>
+                        
+                    </div>
+                </div>        
                 
+                <percentage-navigation-component ref="nav"/>
             </div>
-        </div>        
-        
-        <percentage-navigation-component ref="nav"/>
+            <div v-else key="time">
+                hello world
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -49,6 +63,8 @@ export default class MusicComponent extends Vue implements CalendarNavigationInd
     chart_activity: BubbleChart | null = null;
     chart_content_type: BubbleChart | null = null;
     chart_medium: BubbleChart | null = null;
+
+    showBubbles = true;
 
     mounted() {
         let comp = this;
@@ -94,6 +110,28 @@ export default class MusicComponent extends Vue implements CalendarNavigationInd
         this.updateData();
     }
 
+    changeContent() {
+        this.showBubbles = !this.showBubbles;
+    }
+
+    beforeEnter() {
+        if(this.showBubbles) {
+            this.$nextTick(function() {
+                this.nav = this.$refs.nav as PercentageNavigationComponent;
+                this.chart_duration = this.$refs.musicDurationChart as BubbleChart;
+                this.chart_intention = this.$refs.musicIntentionChart as BubbleChart;
+                this.chart_activity = this.$refs.musicActivityChart as BubbleChart;
+                this.chart_content_type = this.$refs.musicContentTypeChart as BubbleChart;
+                this.chart_medium = this.$refs.musicMediumChart as BubbleChart;
+
+                this.nav.addCalendarNavigationIndiciesChangedListener(this);
+                this.nav.addPersonNavigationIndiciesChangedListener(this);
+            });
+        }
+
+    }
+
+
 }
 </script>
 
@@ -105,9 +143,9 @@ export default class MusicComponent extends Vue implements CalendarNavigationInd
 
 .third-row {
     width: 100%;
-    height: 33%;
+    height: 33.33%;
     box-sizing: border-box;
-    padding: 2rem;
+    
 }
 
 .chart-container {
@@ -118,8 +156,13 @@ export default class MusicComponent extends Vue implements CalendarNavigationInd
 
 .half-column {
     display: inline-block;
-    width: 48%;
+    width: calc(49%);
     height: 100%;
+    height: calc(100% - 1.8rem);
     padding: 2rem;
+}
+
+.my-border-right {
+    border-right: 0.08rem solid rgb(210, 210, 210) !important;
 }
 </style>

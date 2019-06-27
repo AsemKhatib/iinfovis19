@@ -1,19 +1,38 @@
 <!-- HTML Content -->
 <template>
-    <div>
-        <div class="chart-container">
-            <div class="third-row">
-                <bubble-chart ref="socDurationChart"/>
+    <div v-touch:swipe.left="changeContent" v-touch:swipe.right="changeContent">
+        <transition name="fade" mode="out-in" v-on:before-enter="beforeEnter">
+            <div v-if="showBubbles" key="bubbles">
+                <div class="chart-container" >
+            <div class="third-row ">
+                <div class="cell-subtitle">Duration</div>
+                <div class="cell-padding">
+                    <bubble-chart ref="socDurationChart"/>
+                </div>
+                
             </div>
-            <div class="third-row">
-                <bubble-chart ref="socTypeChart"/>
+            <div class="third-row bg-gray">
+                <div class="cell-subtitle">With whom?</div>
+                <div class="cell-padding">
+                    <bubble-chart ref="socTypeChart"/>
+                </div>
+                
             </div>
-            <div class="third-row">
-                <bubble-chart ref="socAmountChart"/>
+            <div class="third-row ">
+                <div class="cell-subtitle">Amount of people</div>
+                <div class="cell-padding">
+                    <bubble-chart ref="socAmountChart"/>
+                </div>
+                
             </div>
-        </div>
-        
-        <percentage-navigation-component ref="nav"/>
+                
+                <percentage-navigation-component ref="nav"/>
+            </div>
+            </div>
+            <div v-else key="time">
+                hello world
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -35,6 +54,8 @@ export default class SocializingComponent extends Vue implements CalendarNavigat
     chart_duration: BubbleChart | null = null;
     chart_type: BubbleChart | null = null;
     chart_amount: BubbleChart | null = null;
+
+    showBubbles = true;
 
     mounted() {
         this.$nextTick(function() {  
@@ -78,6 +99,24 @@ export default class SocializingComponent extends Vue implements CalendarNavigat
         this.updateData();
     }
 
+    changeContent() {
+        this.showBubbles = !this.showBubbles;
+    }
+
+    beforeEnter() {
+        if(this.showBubbles) {
+            this.$nextTick(function() {  
+                this.nav = this.$refs.nav as PercentageNavigationComponent;
+                this.chart_duration = this.$refs.socDurationChart as BubbleChart;
+                this.chart_type = this.$refs.socTypeChart as BubbleChart;
+                this.chart_amount = this.$refs.socAmountChart as BubbleChart;
+
+                this.nav.addCalendarNavigationIndiciesChangedListener(this);
+                this.nav.addPersonNavigationIndiciesChangedListener(this);
+            });
+        }
+
+    }
 }
 </script>
 
@@ -85,9 +124,9 @@ export default class SocializingComponent extends Vue implements CalendarNavigat
 <style>
 .third-row {
     width: 100%;
-    height: 33%;
+    height: 33.33%;
     box-sizing: border-box;
-    padding: 1rem;
+    
 }
 
 .chart-container {

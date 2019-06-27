@@ -3,7 +3,7 @@
     <div>
         <!-- Absolute and lays over the container to interfere touch events -->
         <div class="nav-touch noselect">
-            <!-- used to be make position relative again -->
+            <!-- used to be make position relative again --- I USE THIS ONE FOR TOUCH EVENTS -->
             <div class="nav-container">
                 <!-- absolute within nav-container -->
                 <div class="nav-move hidden">
@@ -132,6 +132,7 @@ export default class FoodNavigationComponent extends Vue implements CalendarNavi
     }
 
     sync() {
+        console.log("lol");
         let dayIndicies = this.getSelectedDayIndicies();
         let personIndicies = this.getSelectedPersonIndicies();
 
@@ -190,6 +191,7 @@ export default class FoodNavigationComponent extends Vue implements CalendarNavi
             function(event: Event) {
             },
             function(event: Event) {
+                if ( !nav.classList.contains('hidden' )) return;
                 let x = (event as MouseEvent).clientX;
                 let y = (event as MouseEvent).clientY;
 
@@ -222,9 +224,10 @@ export default class FoodNavigationComponent extends Vue implements CalendarNavi
                 nav.classList.toggle('hidden', false);
             }, 500);
 
-            close.addEventListener('click', function() {
+            addClickAndLongClickToElement(close,
+            function() {
                 nav.classList.toggle('hidden', true);
-            });
+            }, null, 500);
         }
     }
 
@@ -268,6 +271,7 @@ export default class FoodNavigationComponent extends Vue implements CalendarNavi
                 function dragMove(e: Event) {
                     let touchMoveEvent = e as TouchEvent;
                     touchMoveEvent.preventDefault();
+                    console.log("event");
 
                     let currentX = touchMoveEvent.touches[0].clientX;
                     let currentY = touchMoveEvent.touches[0].clientY;
@@ -289,6 +293,7 @@ export default class FoodNavigationComponent extends Vue implements CalendarNavi
                     nav.classList.toggle('nav-animate-absoulte', true);
                     dragger.classList.toggle('dragged', false);
                     comp.moveNavBackToContainer();
+                    e.preventDefault();
                 }
 
                 let cursorRect = dragger.getBoundingClientRect();
@@ -338,6 +343,7 @@ export default class FoodNavigationComponent extends Vue implements CalendarNavi
                     nav.classList.toggle('nav-animate-absoulte', true);
                     dragger.classList.toggle('dragged', false);
                     comp.moveNavBackToContainer();
+                    e.preventDefault();
                 }
 
                 let cursorRect = dragger.getBoundingClientRect();
