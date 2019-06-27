@@ -1,31 +1,38 @@
 <!-- HTML Content -->
 <template>
-    <div>
-        <!-- Example content -->
-        <div class="chart-container">
-            <div class="third-row">
-                <div class="half-column">
-                    <bubble-chart ref="musicDurationChart"/>
-                </div>
-                <div class="half-column">
-                    <bubble-chart ref="musicIntentionChart"/>
-                </div>
-            </div>
-            <div class="third-row">
-                <bubble-chart ref="musicActivityChart"/>
-            </div>
-            <div class="third-row">
-                <div class="half-column">
-                    <bubble-chart ref="musicContentTypeChart"/>
-                </div>
-                <div class="half-column">
-                    <bubble-chart ref="musicMediumChart"/>
-                </div>
+    <div v-touch:swipe.left="changeContent" v-touch:swipe.right="changeContent">
+        <transition name="fade" mode="out-in" v-on:before-enter="beforeEnter">
+            <div v-if="showBubbles" key="bubbles">
+                <!-- Example content -->
+                <div class="chart-container">
+                    <div class="third-row">
+                        <div class="half-column">
+                            <bubble-chart ref="musicDurationChart"/>
+                        </div>
+                        <div class="half-column">
+                            <bubble-chart ref="musicIntentionChart"/>
+                        </div>
+                    </div>
+                    <div class="third-row">
+                        <bubble-chart ref="musicActivityChart"/>
+                    </div>
+                    <div class="third-row">
+                        <div class="half-column">
+                            <bubble-chart ref="musicContentTypeChart"/>
+                        </div>
+                        <div class="half-column">
+                            <bubble-chart ref="musicMediumChart"/>
+                        </div>
+                        
+                    </div>
+                </div>        
                 
+                <percentage-navigation-component ref="nav"/>
             </div>
-        </div>        
-        
-        <percentage-navigation-component ref="nav"/>
+            <div v-else key="time">
+                hello world
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -49,6 +56,8 @@ export default class MusicComponent extends Vue implements CalendarNavigationInd
     chart_activity: BubbleChart | null = null;
     chart_content_type: BubbleChart | null = null;
     chart_medium: BubbleChart | null = null;
+
+    showBubbles = true;
 
     mounted() {
         let comp = this;
@@ -93,6 +102,28 @@ export default class MusicComponent extends Vue implements CalendarNavigationInd
         }
         this.updateData();
     }
+
+    changeContent() {
+        this.showBubbles = !this.showBubbles;
+    }
+
+    beforeEnter() {
+        if(this.showBubbles) {
+            this.$nextTick(function() {
+                this.nav = this.$refs.nav as PercentageNavigationComponent;
+                this.chart_duration = this.$refs.musicDurationChart as BubbleChart;
+                this.chart_intention = this.$refs.musicIntentionChart as BubbleChart;
+                this.chart_activity = this.$refs.musicActivityChart as BubbleChart;
+                this.chart_content_type = this.$refs.musicContentTypeChart as BubbleChart;
+                this.chart_medium = this.$refs.musicMediumChart as BubbleChart;
+
+                this.nav.addCalendarNavigationIndiciesChangedListener(this);
+                this.nav.addPersonNavigationIndiciesChangedListener(this);
+            });
+        }
+
+    }
+
 
 }
 </script>
