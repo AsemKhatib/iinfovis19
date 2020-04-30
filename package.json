@@ -18,7 +18,7 @@
     "bootstrap": "^4.3.1",
     "d3": "^5.9.2",
     "fs": "0.0.1-security",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "vue": "^2.5.2",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^6.0.0",
